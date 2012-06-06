@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!--
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+-->
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width target-densitydpi=device-dpi initial-scale=1 maximum-scale=1 user-scalable=0" />
+    <title id="appName"></title>
+    <audio id="sound-intro" src="audio/Theme_Loop.ogg" preload="auto" loop="true" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-buttonclick" src="audio/GeneralButtonClick_wav.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-cardflip" src="audio/CardFlip.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-background" src="audio/GameplayBackgroundAtmospheric_Loop.ogg" preload="auto" loop="true" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-navpane" src="audio/NavPaneSwoosh.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-end" src="audio/Replay.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-starbutton" src="audio/StarButton.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-thumbbutton" src="audio/ThumbsDown.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+    <audio id="sound-begin" src="audio/WhipCrackBegin.ogg" preload="auto" autobuffer type="audio/ogg"></audio>
+  </head>
+  <body>
+    <div font-family="CarterOne">.</div>
+    <div id="licensepage" style="display: none">
+        <iframe id="licensetext" src="README.txt"></iframe>
+        <div id="licensebtnu" class="licensebtn">&uarr;</div>
+        <div id="licensebtnd" class="licensebtn">&darr;</div>
+        <div id="licensebtnq" class="licensebtn">Back</div>
+    </div>
+    <div id="screen">
+      <img id="background" src="images/FC_Background_120911_a.png" alt="Background Image" />
+      <img id="adventure-ribbon" src="images/FC_AdventureRibbon_120911_a.png" alt="Adventure Ribobn"/>
+      <p id="adventure-text"></p>
+      <img id="adventure-ribbon_tail" src="images/FC_AdventureRibbonTail_120911_a.png" alt="Adventure Ribobn Tail"/>
+      <img id="flash_title" src="images/FC_FlashTitle_120911_a.png" alt="Flash Title"/>
+      <img id="cards-ribbon" src="images/FC_CardRibbon_120911_a.png" alt="Card Ribbon"/>
+      <p id="cards-text"></p>
+      <img id="cards-ribbon-tail" src="images/FC_CardRibbonTail_120911_a.png" alt="Card Ribbon Tail"/>
+      <div id="playButton">
+	<p id="play_button-text"></p>
+	</div>
+      <div id="licensebtnl" style="top: 540px; left: 945px;"> i </div>
+    </div>
+    <div id="screen-nav">
+      <img id="background-nav" src="images/FC_Background_120911_a.png" alt="Background">
+      <img id="nav-pane-compass" src="images/FC_Compass_120911_a.png" alt="Nav Pane Compass"></img>
+      <div id="nav-pane-animation-open">
+	<img id="nav-pane" src="images/FC_NavExpanded_120911_a.png" alt="Nav Pane" ></img>
+	<img id="nav-pane-tent" src="images/FC_NavTent_120911_a.png" alt="Nav Pane Tent Icon"></img>
+	<p id="nav-pane-inner" src="" alt="Inner Nav Pane">
+	  <div id="shapes_deck" ></div>
+	  <div id="color_deck" ></div>
+	  <div id="counting_deck" ></div>
+	  <div id="spanish_deck" ></div>
+	</p>
+	<p id="score-text"></p>
+	<img id="nav-flag" src="images/FC_NavFlag_120911_a.png" alt="Nav Flag"></img>
+	<p id="card-title"></p>
+      </div>
+      <img id="rope-top" src="images/FC_Rope-Top_120911_a.png" alt="Rope Top"></img>
+      <img id="rope-bottom" src="images/FC_Rope-Bottom_120911_a.png" alt="Rope Bottom"></img>
+      <img id="card-stack" src="images/FC_CardStack_120911_a.png" alt="Card Stack"></img>
+      <div id="current-card">
+	<div id="card"></div>
+	<p id="card-answer"></p>
+      </div>
+      <div id="wrong-button" ></img></div>
+      <div id="right-button" ></img></div>
+      <div id="replay-button" ></img></div>
+      <div id="help_icon"></div>
+      <img id="help_card" src="images/FC_BlankCard_021512_a.png"></img>
+      <div id="help_text">Choose a set of flash cards by clicking one of the options (shapes, Spanish, colors, or numbers) on the left side. Your first card appears. Think of the answer, then click on the card. The answer appears. If you got it right, click the checkmark. If you got it wrong, click the X. Continue until your score is displayed. Cards you got right show as yellow stars, incorrect answers are empty stars. Click on a set of flash cards on the left to choose a new set or the same set to try again!</div>
+      <div id="help_close">X</div>
+      <div id="smoke_screen"></div>
+    </div>
+    <link rel="stylesheet" href="css/flashcards.css"/>
+    <link rel="stylesheet" href="css/license.css"></link>
+    <script src="js/license.js"></script>
+    <script src="js/getMessage.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/flashcards.js"></script>
+  </body>
+</html>

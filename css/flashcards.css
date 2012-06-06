@@ -1,0 +1,604 @@
+/*
+ * Copyright (c) 2012, Intel Corporation.
+ *
+ * This program is licensed under the terms and conditions of the 
+ * Apache License, version 2.0.  The full text of the Apache License is at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+@font-face {
+	font-family: 'Carter One';
+	src: url('../fonts/CarterOne.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gill Sans';
+	src: url('fonts/GillSansUltraBold') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+    margin: 0px;
+    -webkit-user-select: none;
+    box-shadow: 5px 5px 20px black;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: -webkit-box;
+    background: #000000;
+    overflow: hidden;
+}
+
+#screen {
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    overflow: hidden;
+}
+
+#screen-nav {
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    display: none;
+    overflow: hidden;
+}
+
+/* 800 x 480 */
+@media (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.78125, 0.8); }
+}
+/* 1024 x 600 */
+@media (min-width: 1024px) and (min-height: 600px) and (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); }
+}
+/* 1280 x 720 */
+@media (min-width: 1280px) and (min-height: 720px) and (orientation: landscape) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(1.25, 1.199); }
+}
+
+/* 480 x 800 */
+@media (orientation: portrait) {
+  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(0.8, 0.78125); }
+}
+/* 600 x 1024 */
+@media (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) translate(50%, -50%); }
+}
+/* 720 x 1230 */
+@media (min-width: 720px) and (min-height: 1230px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.2, 1.199) translate(50%, -50%); }
+}
+/* 720 x 1280 */
+@media (min-width: 720px) and (min-height: 1280px) and (orientation: portrait) {
+  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.25, 1.199) translate(50%, -50%); }
+}
+
+#background {
+	position: absolute;
+	width: 1024px;
+	height: 600px;
+}
+
+#background-nav {
+	position: absolute;
+	width: 1024px;
+	height: 600px;
+}
+
+#adventure-ribbon
+{
+	position: absolute;
+	left: 216px;
+	top: 35px;
+	width: 604px;
+	height: 82px;
+	z-index: 2;
+}
+
+#adventure-text
+{
+	position: absolute;
+	text-align: center;
+	left: 308px;
+	top: -65px;
+	font-family: Carter One;
+	font-size: 81px;
+	color: #ffffff;
+	z-index: 3;
+}
+
+#adventure-ribbon_tail
+{
+	position: absolute;
+	left: 167px;
+	-webkit-transform: transformX(-50%);
+	top: 65px;
+	z-index: 1;
+}
+
+#flash_title
+{
+	position: absolute;
+	left: 237px;
+	-webkit-transform: transformX(-50%); 
+	top: 155px;
+}
+
+#cards-ribbon
+{
+	position: absolute;
+	left: 319px;
+	-webkit-transform: transformX(-50%);
+	top: 380px; 
+	width: 354px;
+	height: 82px;
+	z-index: 2;
+}
+
+#cards-text
+{
+	position: absolute;
+	left: 381px;
+	text-align: center;
+	top: 275px;
+	font-family: Carter One;
+	font-size: 83px;
+	color: #ffffff;
+	z-index: 3;
+}
+
+#cards-ribbon-tail
+{
+	position: absolute;
+	left: 268px;
+	top: 410px;
+	-webkit-transform: transformX(-50%); 
+	z-index: 1;
+}
+
+#playButton
+{
+	position: absolute;
+	left: 340px;
+	-webkit-transform: transformX(-50%);
+	width: 307px;
+	height: 83px;
+	top: 500px;
+	background-color: #499aff;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#playButton:active
+{
+	background-color: #314a74;
+}
+
+#play_button-text
+{
+	position: absolute;
+	text-align: center;
+	font-family: Carter One;
+	font-size: 60px;
+	width: 307px;
+	height: 83px;
+	top: -65px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+#nav-pane-animation-open{
+	position: absolute;
+	left: -180px;
+	-webkit-transition: all 1s ease-in;
+	-webkit-transform: translate(172px,0);
+	z-index: 4;
+}
+
+#nav-pane-animation-close{
+	position: absolute;
+	height: 600px;
+	width: 199px;
+	-webkit-transition: all 1s ease-in;
+	-webkit-transform: translate(-172px,0);
+	z-index: 4;
+}
+
+#nav-pane{
+	position: absolute;
+	height: 600px;
+	width: 199px;
+	z-index: 4;
+	cursor: pointer;
+}
+
+#nav-pane-tent{
+	position: absolute;
+	left: 50px;
+	top: 10px;
+	z-index: 5;
+}
+
+#nav-pane-inner{
+	position: absolute;
+	height:  391px;
+	width: 157px;
+	top: 60px;
+	left: 13px;
+	background-color: #333333;
+	color: #555753;
+	border-radius: 10px 10px;10px 10px;
+	z-index: 4;
+}
+
+#nav-pane-compass{
+	position: absolute;
+	width: 133px;
+	height: 126px;
+	left: 891px;
+}
+
+#shapes_deck{
+	position: absolute;
+	left: 20px;
+	top: 120px;
+	width: 150px;
+	height: 89px;
+	background-image: url('../images/FC_NavCards-shapes_120911_a.png');
+	z-index: 7;
+	cursor: pointer;
+}
+
+#color_deck{
+	position: absolute;
+	left: 19px;
+	top: 260px;
+	width: 151px;
+	height: 93px;
+	background-image: url("../images/FC_NavCards-colors_120911_a.png" );
+	z-index: 5;
+	cursor: pointer;
+}
+
+#counting_deck{
+	position: absolute;
+	left: 21px;
+	top: 340px;
+	width: 149px;
+	height: 84px;
+	background-image: url("../images/FC_NavCards-counting_120911_a.png");
+	z-index: 4;
+	cursor: pointer;
+}
+
+#spanish_deck{
+	position: absolute;
+	left: 21px;
+	top: 200px;
+	width: 149px;
+	height: 87px;
+	background-image: url('../images/FC_NavCards-Spanish_021512_a.png');
+	z-index: 6;
+	cursor: pointer;
+}
+
+#score-text{
+	position: absolute;
+	text-align: center;
+	margin: 0px;
+	left: 10px;
+	top: 505px;
+	width: 157px;
+	font-family: Carter One;
+	font-size: 35px;
+	color: #ffffff;
+	z-index: 4;
+	cursor: pointer;
+}
+
+#nav-flag{
+	position: absolute;
+	left: 196px;
+	top: 10px;
+	z-index: 3;
+	cursor: default;
+}
+
+#card-title{
+	position: absolute;
+	text-align: center;
+	width: 200px;
+	line-height: 41px;
+	margin: 0px;
+	left: 200px;
+	top: 20px;
+	font-family: Carter One;
+	font-size: 41px;
+	color: #ffffff;
+	z-index: 3;
+}
+
+#card-answer{
+	position: absolute;
+	left: 200px;
+	top: 370px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 750px;
+	height: 100px;
+	text-align: center;
+	font-family: Carter One;
+	font-size: 65px;
+	opacity: 0;
+	color: #000000;
+	z-index: 3;
+	opacity: 0;
+	cursor: pointer;
+}
+
+#rope-top{
+	position: absolute;
+	top: 211px;
+	left: 890px;
+	z-index: 4;
+}
+
+#rope-bottom{
+	position: absolute;
+	top: 290px;
+	left: 890px;
+	z-index: 1;
+}
+
+#card-stack{
+	position: absolute;
+	left: 118px;
+	top: 60px;
+	width: 860px;
+	height: 509px;
+	z-index: 1;
+}
+
+#card{
+	position: absolute;
+	left: 195px;
+	top: 90px;
+	width: 771px;
+	height: 380px;
+	text-align: center;
+	font-family: Carter One;
+	font-size: 230px;
+	color: #499aff;
+	z-index: 3;
+	cursor: pointer;
+}
+
+#current-card{
+    z-index: 3;
+    cursor: pointer;
+}
+
+#flip-back{
+	-webkit-transform-origin: 80% 20%;
+	-webkit-transition: all 1s ease-in;
+	-webkit-transform: rotate(-180deg);
+    z-index: 3;
+}
+
+#card-flip{
+	-webkit-transform-origin: 80% 20%;
+	-webkit-transition: all 1s ease-in;
+	-webkit-transform: rotate(180deg);
+	z-index: 3;
+}
+
+#wrong-button{
+	position: absolute;
+	top: 480px;
+	left: 230px;
+	opacity: 1;
+	width: 105px;
+	height: 105px;
+	background-image: url('../images/FC_x_white.png');
+	z-index: 2;
+	display: none;
+	cursor: pointer;
+}
+
+#wrong-button:active{
+	background-image: url('../images/FC_x_color.png');
+}
+
+#right-button{
+	position: absolute;
+	top: 480px;
+	left: 800px;
+	opacity: 1;
+	width: 105px;
+	height: 105px;
+	z-index: 3;
+	display: none;
+	background-image: url('../images/FC_checkmark_white.png');
+	cursor: pointer;
+}
+
+#right-button:active{
+	background-image: url('../images/FC_checkmark_color.png');
+}
+
+#replay-button{
+	position: absolute;
+	top: 480px;
+	left: 500px;
+	opacity: 1;
+	width: 105px;
+	height: 105px;
+	background-image: url('../images/FC_Replay_120911_a.png');
+	z-index: 3;
+	display: none;
+	cursor: pointer;
+}
+
+#replay-button:active{
+	background-image: url('../images/FC_Replay_120911_b.png');
+}
+
+.star
+{
+	position: absolute;
+	width: 70px;
+	height: 67px;
+	z-index: 3;
+}
+
+#star1{
+	top: 130px;
+	left: 220px;
+
+}
+
+#star2{
+	top: 130px;
+	left: 340px;
+}
+
+#star3{
+	top: 130px;
+	left: 460px;
+}
+
+#star4{
+	top: 130px;
+	left: 580px;
+}
+
+
+#star5{
+	top: 130px;
+	left: 700px;
+}
+
+#star6{
+	top: 220px;
+	left: 220px;
+}
+
+#star7{
+	top: 220px;
+	left: 340px;
+}
+
+#star8{
+	top: 220px;
+	left: 460px;
+}
+
+#star9{
+	top: 220px;
+	left: 580px;
+}
+
+#star10{	
+	top: 220px;
+	left: 700px;
+}
+
+#star11{
+	top: 310px;
+	left: 220px;
+}
+
+#star12{
+	top: 310px;
+	left: 340px;
+}
+
+#star13{
+	top: 310px;
+	left: 460px;
+}
+
+#star14{
+	top: 310px;
+	left: 580px;
+}
+
+#help_icon{
+	position: absolute;
+	left: 950px;
+	top: 530px;
+	width: 44px;
+	height: 44px;
+	background-image: url('../images/Flashcards_help.png');
+	z-index: 2;
+	cursor: pointer;
+}
+
+#help_card{
+    position: absolute;
+    left: 195px;
+    top: 90px;
+    width: 771px;
+    height: 380px;
+    display: none;
+    border: 0px;
+    z-index: 8;
+    cursor: default;
+    -webkit-user-select:none;
+}
+
+#help_text{
+    position: absolute;
+    text-align: center;
+    width: 620px;
+    line-height: 30px;
+    margin: 0px;
+    left: 215px;
+    top: 160px;
+    font-family: Carter One;
+    font-size: 20px;
+    color:  #5C3317;
+    display: none;
+    cursor: default;
+    z-index: 10;
+    -webkit-user-select:none;
+}
+
+#help_close{
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    line-height: 41px;
+    margin: 0px;
+    left: 910px;
+    top: 105px;
+    font-family: Carter One;
+    font-size: 41px;
+    color:  #5C3317;
+    cursor: pointer;
+    display: none;
+    z-index: 9;
+}
+
+#smoke_screen{
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    background-color: black;
+    opacity: 0.5;
+    cursor: default;
+    display: none;
+    z-index: 7;
+}
+			
+
