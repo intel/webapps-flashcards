@@ -12,10 +12,13 @@ var GameSound,
     license_init,
     getMessage;
 
+FlashCardApp = {};
+
 /**
 * Flashcards() class contains all the variables and functions needed to run the flash card game 
+*  @constructor
 */
-var FlashCardApp = function () {
+(function () {
     "use strict";
     var sound_buttonclick = new GameSound("sound-buttonclick"), //button clicks 
         sound_intro = new GameSound("sound-intro", true), //intro theme song
@@ -451,43 +454,43 @@ var FlashCardApp = function () {
     function setEventListeners() {
         document.getElementById("playButton").addEventListener('click', function () {
             playNowClicked();
-        });
+        }, false);
         document.getElementById("nav-pane").addEventListener('click', function () {
             navPaneClicked();
-        });
+        }, false);
         document.getElementById("shapes_deck").addEventListener('click', function () {
             shapeDeckClicked();
-        });
+        }, false);
         document.getElementById("color_deck").addEventListener('click', function () {
             colorDeckClicked();
-        });
+        }, false);
         document.getElementById("counting_deck").addEventListener('click', function () {
             countingDeckClicked();
-        });
+        }, false);
         document.getElementById("spanish_deck").addEventListener('click', function () {
             spanishDeckClicked();
-        });
+        }, false);
         document.getElementById("card").addEventListener('click', function () {
             cardClicked();
-        });
+        }, false);
         document.getElementById("card-answer").addEventListener('click', function () {
             cardClicked();
-        });
+        }, false);
         document.getElementById("wrong-button").addEventListener('click', function () {
             wrongButtonClicked();
-        });
+        }, false);
         document.getElementById("right-button").addEventListener('click', function () {
             rightButtonClicked();
-        });
+        }, false);
         document.getElementById("replay-button").addEventListener('click', function () {
             replayButtonClicked();
-        });
+        }, false);
         document.getElementById("help_icon").addEventListener('click', function () {
             helpClicked();
-        });
+        }, false);
         document.getElementById("help_close").addEventListener('click', function () {
             helpCloseClicked();
-        });
+        }, false);
     }
 
     /**
@@ -504,12 +507,11 @@ var FlashCardApp = function () {
         setEventListeners();
     }
 
-    init();
-};
+    window.addEventListener('load', function () {
+        "use strict";
+        init();
+        //hack to get active state to work on webkit
+        window.touchstart = function (e) {};
+    }, false);
+})();
 
-window.addEventListener('load', function () {
-    "use strict";
-    var myApp = new FlashCardApp();
-    //hack to get active state to work on lunchbox/tizen emulator
-    window.touchstart = function (e) {};
-});
