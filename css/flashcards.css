@@ -42,7 +42,6 @@ body{
     position: absolute;
     width: 1024px;
     height: 600px;
-    overflow: hidden;
 }
 
 #screen-nav {
@@ -50,7 +49,6 @@ body{
     width: 1024px;
     height: 600px;
     display: none;
-    overflow: hidden;
 }
 
 /* 800 x 480 */
@@ -115,9 +113,10 @@ body{
 	font-size: 81px;
 	color: #ffffff;
 	z-index: 3;
+	cursor: default;
 }
 
-#adventure-ribbon_tail
+#adventure-ribbon-tail
 {
 	position: absolute;
 	left: 167px;
@@ -126,7 +125,7 @@ body{
 	z-index: 1;
 }
 
-#flash_title
+#flash-title
 {
 	position: absolute;
 	left: 237px;
@@ -155,6 +154,7 @@ body{
 	font-size: 83px;
 	color: #ffffff;
 	z-index: 3;
+	cursor: default;
 }
 
 #cards-ribbon-tail
@@ -166,7 +166,7 @@ body{
 	z-index: 1;
 }
 
-#playButton
+#play-button
 {
 	position: absolute;
 	left: 340px;
@@ -179,12 +179,12 @@ body{
 	cursor: pointer;
 }
 
-#playButton:active
+#play-button:active
 {
 	background-color: #314a74;
 }
 
-#play_button-text
+#play-button-text
 {
 	position: absolute;
 	text-align: center;
@@ -248,7 +248,7 @@ body{
 	left: 891px;
 }
 
-#shapes_deck{
+#shapes-deck{
 	position: absolute;
 	left: 20px;
 	top: 120px;
@@ -259,7 +259,7 @@ body{
 	cursor: pointer;
 }
 
-#color_deck{
+#color-deck{
 	position: absolute;
 	left: 19px;
 	top: 260px;
@@ -270,7 +270,7 @@ body{
 	cursor: pointer;
 }
 
-#counting_deck{
+#counting-deck{
 	position: absolute;
 	left: 21px;
 	top: 340px;
@@ -281,7 +281,7 @@ body{
 	cursor: pointer;
 }
 
-#spanish_deck{
+#spanish-deck{
 	position: absolute;
 	left: 21px;
 	top: 200px;
@@ -294,9 +294,21 @@ body{
 
 #score-text{
 	position: absolute;
-	text-align: center;
 	margin: 0px;
-	left: 10px;
+	top: 505px;
+	left: 15px;
+	width: 157px;
+	font-family: Carter One;
+	font-size: 35px;
+	color: #ffffff;
+	z-index: 4;
+	cursor: pointer;
+}
+
+#score-number{
+	position: absolute;
+	margin: 0px;
+	left: 107px;
 	top: 505px;
 	width: 157px;
 	font-family: Carter One;
@@ -482,7 +494,6 @@ body{
 	left: 580px;
 }
 
-
 #star5{
 	top: 130px;
 	left: 700px;
@@ -533,7 +544,7 @@ body{
 	left: 580px;
 }
 
-#help_icon{
+#help-icon{
 	position: absolute;
 	left: 950px;
 	top: 530px;
@@ -544,7 +555,7 @@ body{
 	cursor: pointer;
 }
 
-#help_card{
+#help-card{
     position: absolute;
     left: 195px;
     top: 90px;
@@ -557,7 +568,7 @@ body{
     -webkit-user-select:none;
 }
 
-#help_text{
+#help-text{
     position: absolute;
     text-align: center;
     width: 620px;
@@ -574,7 +585,7 @@ body{
     -webkit-user-select:none;
 }
 
-#help_close{
+#help-close{
     position: absolute;
     text-align: center;
     width: 40px;
@@ -590,7 +601,7 @@ body{
     z-index: 9;
 }
 
-#smoke_screen{
+#smoke-screen{
     position: absolute;
     width: 1024px;
     height: 600px;

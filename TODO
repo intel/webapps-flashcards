@@ -1,0 +1,22 @@
+Want to help improve this app?
+
+Known issues:
+Wrong/right button images missing license
+Prevent flicker on load
+Separate score text from the actual score
+Separate card object into it's own prototype to make adding of new decks simpler
+Separate card content from card backing to reduce memory footprint, then display card content onto FC_BlankCard_021512_a.png.
+Find creative commons audio for all cards decks
+Make the nav pane scrollable
+Add an alphabet deck with audio 
+Add card flip animation across the Z axis from left to right
+Convert app to jquery
+Animate different parts of the home screen (campfire, birds, etc.)
+
+Opens:
+Is there a better way to set the card deck type and files?
+Is there a way to parent the CSS to make this a one line toggle?
+Expensive to touch the dom should we create them once and then use display attributes?
+Would it be better to generate each answer array in var and then add it to the prototype?
+Use a CSS class to set shape properties?
+If getMessage returns the array of strings we don't need to assign by index?

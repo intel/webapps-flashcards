@@ -7,511 +7,602 @@
  *
  */
 
-/* global */
-var GameSound,
+/**
+ * globals
+ */
+var getMessage,
     license_init,
-    getMessage;
-
-FlashCardApp = {};
+    GameSound,
+    window,
+    document;
 
 /**
 * Flashcards() class contains all the variables and functions needed to run the flash card game 
 *  @constructor
 */
-(function () {
+var FlashCards = function () {
     "use strict";
-    var sound_buttonclick = new GameSound("sound-buttonclick"), //button clicks 
-        sound_intro = new GameSound("sound-intro", true), //intro theme song
-        sound_cardflip = new GameSound("sound-cardflip"), //card flip 
-        sound_background = new GameSound("sound-background", true), //background birds chirping 
-        sound_navpane = new GameSound("sound-navpane"), //nav pane swoosh
-        sound_end = new GameSound("sound-end"), //trumpets fanfare end game
-        sound_starbutton = new GameSound("sound-starbutton"), //right answer
-        sound_thumbbutton = new GameSound("sound-thumbbutton"), //wrong answer 
-        sound_begin = new GameSound("sound-begin"), //whip crack game begin
-        wrongCount = 0, //current game wrong answers 
-        rightCount = 0, //current game right answers 
-        cardSet = "FlashCardSet-Color_", //name of card set and file prefix
-        cardCount = 0, //cards in selected deck
-        lastCard = 0, //last card number in selected deck
-        endGameFlag = false, //last card in selected deck is in play
-        colorHex = [], //holds color values for text used in the color deck
-        deckAnswer = [], //holds answers for selected deck
-        colorAnswer = [], //holds answers for color deck
-        shapeAnswer = [], //holds answers for shape deck
-        numAnswer = [], //holds answers for counting deck
-        spanishAnswer = []; //holds answers for spanish color deck
+    this.cardCount = 0; //current game wrong answers 
+    this.rightCount = 0; //current game right answers 
+    this.cardSet = "FlashCardSet-Color"; //name of card set and file prefix
+    this.endGameFlag = false; //endGame flag
+    this.deckAnswer = []; //the array of answers for this deck
+};
 
-    /**
-     *  Flashcards.helpClicked() plays audio and makes the help card dialog visible when help icon is clicked 
-     */
-    function helpClicked() {
-        sound_buttonclick.play();
-        document.getElementById("help_close").style.display = "inline";
-        document.getElementById("help_text").style.display = "inline";
-        document.getElementById("smoke_screen").style.display = "inline";
-        document.getElementById("help_card").style.display = "inline";
+/**
+ *  Flashcards.helpClicked() plays audio and makes the help card dialog visible when help icon is clicked 
+ *  @private
+ */
+FlashCards.prototype.helpClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+
+    document.getElementById("help-close").style.display = "inline";
+    document.getElementById("help-text").style.display = "inline";
+    document.getElementById("smoke-screen").style.display = "inline";
+    document.getElementById("help-card").style.display = "inline";
+};
+
+/* 
+ * Flashcards.helpCloseClicked() plays audio and makes the help card dialog invisible when help X icon is clicked 
+ * @private
+ */
+FlashCards.prototype.helpCloseClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    document.getElementById("help-close").style.display = "none";
+    document.getElementById("smoke-screen").style.display = "none";
+    document.getElementById("help-card").style.display = "none";
+    document.getElementById("help-text").style.display = "none";
+};
+
+ /** 
+ * Flashcards.hideAnswer() will hide the wrong and right buttons and answer text reseting the cursor style
+ * @private
+ */
+FlashCards.prototype.hideAnswer = function () {
+    "use strict";
+    document.getElementById("wrong-button").style.display = "none";
+    document.getElementById("right-button").style.display = "none";
+    document.getElementById("card-answer").style.opacity = "0";
+    document.getElementById("card").style.cursor = "pointer";
+    document.getElementById("card-answer").style.cursor = "pointer";
+};
+
+/** 
+ * Flashcards.clear() will reset game counters, hide stars, replay button, answers, and reset the score
+ * @private
+ */
+FlashCards.prototype.clear = function () {
+    "use strict";
+    var parent = document.getElementById("screen-nav"),
+        count,
+        children;
+
+    //reset properties
+    this.endGameFlag = false;
+    this.rightCount = 0;
+    this.cardCount = 0;
+
+    //remove all stars from dom
+    children = document.getElementsByClassName("star");
+    for (count = children.length - 1; count >= 0; count = count - 1) {
+        parent.removeChild(document.getElementsByClassName("star")[count]);
     }
 
-    /* 
-     * Flashcards.helpCloseClicked() plays audio and makes the help card dialog invisible when help X icon is clicked 
-     */
-    function helpCloseClicked() {
-        sound_buttonclick.play();
-        document.getElementById("help_close").style.display = "none";
-        document.getElementById("smoke_screen").style.display = "none";
-        document.getElementById("help_card").style.display = "none";
-        document.getElementById("help_text").style.display = "none";
-    }
+    document.getElementById("score-number").innerHTML = ": 0";
+    document.getElementById("replay-button").style.display = "none";
+    this.hideAnswer();
+};
 
-     /* 
-     * Flashcards.hideAnswer() will hide the wrong and right buttons and answer text reseting the cursor style
-     */
-    function hideAnswer() {
-        document.getElementById("wrong-button").style.display = "none";
-        document.getElementById("right-button").style.display = "none";
-        document.getElementById("card-answer").style.opacity = "0";
-        document.getElementById("card").style.cursor = "pointer";
-        document.getElementById("card-answer").style.cursor = "pointer";
-    }
-
-    /* 
-     * Flashcards.clear() will reset game counters, hide stars, replay button, answers, and reset the score
-     */
-    function clear() {
-        endGameFlag = false;
-        rightCount = 0;
-        wrongCount = 0;
-        cardCount = 0;
-        var parent = document.getElementById("screen-nav"),
-            count,
-            children;
-        document.getElementById("score-text").innerHTML = getMessage("score_text") + ": " + "0";
-        children = document.getElementsByClassName("star");
-        for (count = children.length - 1; count >= 0; count = count - 1) {
-            parent.removeChild(document.getElementsByClassName("star")[count]);
-        }
-        document.getElementById("replay-button").style.display = "none";
-        hideAnswer();
-    }
-
-    /**
-     *  Flashcards.navPaneClicked() plays button click audio, opens or closes nav pane and plays nav pane sound effect
-     */
-    function navPaneClicked() {
-        sound_buttonclick.play();
-        if (document.getElementById("nav-pane-animation-open")) {
-            document.getElementById("nav-pane-animation-open").setAttribute("id", "nav-pane-animation-close");
-        } else {
-            document.getElementById("nav-pane-animation-close").setAttribute("id", "nav-pane-animation-open");
-        }
-        sound_navpane.play();
-    }
-
-    /**
-     *  Flashcards.getShapeDeckAnswers() will call getMessage to get the localized answers for this deck 
-     */
-    function getShapeDeckAnswers() {
-        shapeAnswer[0] = getMessage("circle");
-        shapeAnswer[1] = getMessage("square");
-        shapeAnswer[2] = getMessage("triangle");
-        shapeAnswer[3] = getMessage("oval");
-        shapeAnswer[4] = getMessage("star");
-        shapeAnswer[5] = getMessage("octagon");
-        shapeAnswer[6] = getMessage("rectangle");
-        shapeAnswer[7] = getMessage("trapezoid");
-    }
-
-    /**
-     *  Flashcards.shapeDeckClicked() set the game to play through the this deck
-     */
-    function setShapeDeck() {
-        deckAnswer = shapeAnswer;
-        sound_begin.play();
-        clear();
-        lastCard = 8;
-        cardSet = "FlashCardSet-Shapes";
-        document.getElementById("card-title").innerHTML = getMessage("Shapes");
-        document.getElementById("card-answer").style.color = "#499aff";
-        document.getElementById("card").style.backgroundImage = "url('images/" + cardSet + '_' + cardCount + ".png')";
-        document.getElementById("card-answer").innerHTML = shapeAnswer[cardCount];
-        document.getElementById("card").innerHTML = "";
-    }
-
-    /* 
-     * Flashcards.shapeDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
-     */
-    function shapeDeckClicked() {
-        sound_buttonclick.play();
-        navPaneClicked();
-        setShapeDeck();
-    }
-
-    /**
-     *  Flashcards.getCountingDeckAnswers() will call getMessage to get the localized answers for this deck 
-     */
-    function getCountingDeckAnswers() {
-        numAnswer[0] = getMessage("one");
-        numAnswer[1] = getMessage("two");
-        numAnswer[2] = getMessage("three");
-        numAnswer[3] = getMessage("four");
-        numAnswer[4] = getMessage("five");
-        numAnswer[5] = getMessage("six");
-        numAnswer[6] = getMessage("seven");
-        numAnswer[7] = getMessage("eight");
-        numAnswer[8] = getMessage("nine");
-        numAnswer[9] = getMessage("ten");
-    }
-
-    /**
-     *  Flashcards.countingDeckClicked() set the game to play through the this deck 
-     */
-    function setCountingDeck() {
-        sound_begin.play();
-        deckAnswer = numAnswer;
-        clear();
-        lastCard = 10;
-        cardSet = "FlashCardSet-Counting";
-        document.getElementById("card-title").innerHTML = getMessage("Counting");
-        document.getElementById("card-answer").style.color = "navy";
-        document.getElementById("card").style.backgroundImage = "url('images/" + cardSet + '_' + cardCount + ".png')";
-        document.getElementById("card-answer").innerHTML = numAnswer[cardCount];
-        document.getElementById("card").innerHTML = "";
-    }
-
-    /**
-     * Flashcards.countingDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck
-     */
-    function countingDeckClicked() {
-        sound_buttonclick.play();
-        navPaneClicked();
-        setCountingDeck();
-    }
-
-    /**
-     *  Flashcards.getSpanishDeckAnswers() will call getMessage to get the localized answers for this deck 
-     */
-    function getSpanishDeckAnswers() {
-        spanishAnswer[0] = getMessage("sun");
-        spanishAnswer[1] = getMessage("cloud");
-        spanishAnswer[2] = getMessage("cat");
-        spanishAnswer[3] = getMessage("dog");
-        spanishAnswer[4] = getMessage("tree");
-        spanishAnswer[5] = getMessage("fish");
-        spanishAnswer[6] = getMessage("fruit");
-        spanishAnswer[7] = getMessage("worm");
-        spanishAnswer[8] = getMessage("bird");
-        spanishAnswer[9] = getMessage("crocodile");
-        spanishAnswer[10] = getMessage("book");
-        spanishAnswer[11] = getMessage("socks");
-        spanishAnswer[12] = getMessage("cup");
-        spanishAnswer[13] = getMessage("chair");
-    }
-
-    /**
-     * Flashcards.spanishDeckClicked() set the game to play through the this deck
-     */
-    function setSpanishDeck() {
-        sound_begin.play();
-        deckAnswer = spanishAnswer;
-        clear();
-        lastCard = 14;
-        cardSet = "FlashCardSet-Spanish";
-        document.getElementById("card-title").innerHTML = getMessage("Spanish");
-        document.getElementById("card-answer").style.color = "#000000";
-        document.getElementById("card").style.backgroundImage = "url('images/" + cardSet + '_' + cardCount + ".png')";
-        document.getElementById("card-answer").innerHTML = spanishAnswer[cardCount];
-        document.getElementById("card").innerHTML = "";
-    }
-
-    /**
-     *  Flashcards.spanishDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
-     */
-    function spanishDeckClicked() {
-        sound_buttonclick.play();
-        navPaneClicked();
-        setSpanishDeck();
-    }
-
-    /**
-     *  Flashcards.getColorDeckAnswers() will call getMessage to get the localized answers for this deck 
-     */
-    function getColorDeckAnswers() {
-        colorAnswer[0] = getMessage("red");
-        colorAnswer[1] = getMessage("purple");
-        colorAnswer[2] = getMessage("blue");
-        colorAnswer[3] = getMessage("green");
-        colorAnswer[4] = getMessage("orange");
-        colorAnswer[5] = getMessage("yellow");
-    }
-
-    /**
-     *  Flashcards.getColorDeckColors() will set the text colors for each card in this deck 
-     */
-    function getColorDeckColors() {
-        colorHex[0] = "#dd0000";
-        colorHex[1] = "#7e0b80";
-        colorHex[2] = "#0000ff";
-        colorHex[3] = "#33cc33";
-        colorHex[4] = "#cc9933";
-        colorHex[5] = "#fef600";
-    }
-
-    /** 
-     * Flashcards.colorDeckClicked() set the game to play through the this deck
-     */
-    function setColorDeck() {
-        sound_begin.play();
-        deckAnswer = colorAnswer;
-        clear();
-        cardSet = "FlashCardSet-Color";
-        lastCard = 6;
-
-        document.getElementById("card-title").innerHTML = getMessage("Colors");
-        document.getElementById("card").style.backgroundImage = "url('images/" + cardSet + '_' + cardCount + ".png')";
-        document.getElementById("card-answer").innerHTML = colorAnswer[cardCount];
-        document.getElementById("card-answer").style.color = colorHex[cardCount];
-        document.getElementById("card").innerHTML =	"";
-    }
-
-    /**
-     *  Flashcards.colorDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
-     */
-    function colorDeckClicked() {
-        sound_buttonclick.play();
-        navPaneClicked();
-        setColorDeck();
-    }
-
-    /** 
-     * Flashcards.initNav() gets the localized strings for the game play screen, sets the default deck to Shapes
-     */
-    function initNav() {
-        document.getElementById("appName").innerHTML = getMessage("appName");
-        document.getElementById("score-text").innerHTML = getMessage("score_text") + ": " + "0";
-        document.getElementById("card-title").innerHTML = getMessage("Shapes");
-
-        getColorDeckAnswers();
-        getColorDeckColors();
-        getShapeDeckAnswers();
-        getCountingDeckAnswers();
-        getSpanishDeckAnswers();
-
-        sound_background.play();
-        setShapeDeck();
-    }
-
-    /**
-     *  Flashcards.playNowClicked() will initialize the game screen when Play Now button is clicked and hide the splash screen 
-     */
-    function playNowClicked() {
-        initNav();
-        document.getElementById("screen").style.display = "none";
-        document.getElementById("screen-nav").style.display = "inline";
-    }
-
-    /**
-     * Flashcards.isLastCard() 
-     * @return true if card count is equal to the number of cards in the deck, else return false
-     */
-    function isLastCard() {
-        if (lastCard === cardCount) {
-            return true;
-        }
-        return false;
-    }
-
-     /**
-     * Flashcards.endGame() opens nav pane, plays audio sound for end of game, shows correct star score and replay button
-     */
-    function endGame() {
-        var star,
-            count,
-            container;
+/**
+ *  Flashcards.navPaneToggle() opens or closes nav pane and plays nav pane sound effect
+ * @private
+ */
+FlashCards.prototype.navPaneToggle = function () {
+    "use strict";
+    this.swooshSound.play();
+    if (document.getElementById("nav-pane-animation-open")) {
+        document.getElementById("nav-pane-animation-open").setAttribute("id", "nav-pane-animation-close");
+    } else {
         document.getElementById("nav-pane-animation-close").setAttribute("id", "nav-pane-animation-open");
-        sound_navpane.play();
+    }
+};
 
-        sound_end.play();
-        endGameFlag = true;
+/**
+ *  Flashcards.navPaneClicked() plays button click audio, opens or closes nav pane and plays nav pane sound effect
+ * @private
+ */
+FlashCards.prototype.navPaneClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    this.navPaneToggle();
+};
+
+/**
+ *  Flashcards.getShapeDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  @private
+ */
+FlashCards.prototype.getShapeDeckAnswers = function () {
+    "use strict";
+    this.shapeAnswer = [];
+    this.shapeAnswer[0] = getMessage("circle");
+    this.shapeAnswer[1] = getMessage("square");
+    this.shapeAnswer[2] = getMessage("triangle");
+    this.shapeAnswer[3] = getMessage("oval");
+    this.shapeAnswer[4] = getMessage("star");
+    this.shapeAnswer[5] = getMessage("octagon");
+    this.shapeAnswer[6] = getMessage("rectangle");
+    this.shapeAnswer[7] = getMessage("trapezoid");
+};
+
+/**
+ *  Flashcards.shapeDeckClicked() set the game to play through the this deck
+ * @private
+ */
+FlashCards.prototype.setShapeDeck = function () {
+    "use strict";
+    this.whipCrackSound.play();
+    this.clear();
+    this.cardSet = "FlashCardSet-Shapes";
+    this.deckAnswer = this.shapeAnswer;
+    document.getElementById("card-title").innerHTML = getMessage("shapes");
+    document.getElementById("card-answer").style.color = "#499aff";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + (this.cardCount) + ".png')";
+    document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
+    document.getElementById("card").innerHTML = '';
+};
+
+/** 
+ * Flashcards.shapeDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ * @private
+ */
+FlashCards.prototype.shapeDeckClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    this.navPaneClicked();
+    this.setShapeDeck();
+};
+
+/**
+ *  Flashcards.getCountingDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  @private
+ */
+FlashCards.prototype.getCountingDeckAnswers = function () {
+    "use strict";
+    this.countingAnswer = [];
+    this.countingAnswer[0] = getMessage("one");
+    this.countingAnswer[1] = getMessage("two");
+    this.countingAnswer[2] = getMessage("three");
+    this.countingAnswer[3] = getMessage("four");
+    this.countingAnswer[4] = getMessage("five");
+    this.countingAnswer[5] = getMessage("six");
+    this.countingAnswer[6] = getMessage("seven");
+    this.countingAnswer[7] = getMessage("eight");
+    this.countingAnswer[8] = getMessage("nine");
+    this.countingAnswer[9] = getMessage("ten");
+};
+
+/**
+ *  Flashcards.countingDeckClicked() set the game to play through the this deck 
+ *  @private
+ */
+FlashCards.prototype.setCountingDeck = function () {
+    "use strict";
+    this.whipCrackSound.play();
+    this.clear();
+    this.cardSet = "FlashCardSet-Counting";
+    this.deckAnswer = this.countingAnswer;
+    document.getElementById("card-title").innerHTML = getMessage("counting");
+    document.getElementById("card-answer").style.color = "navy";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
+    document.getElementById("card").innerHTML = '';
+};
+
+/**
+ * Flashcards.countingDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck
+ * @private
+ */
+FlashCards.prototype.countingDeckClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    this.navPaneClicked();
+    this.setCountingDeck();
+};
+
+/**
+ *  Flashcards.getSpanishDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  @private
+ */
+FlashCards.prototype.getSpanishDeckAnswers = function () {
+    "use strict";
+    this.spanishAnswer = [];
+    this.spanishAnswer[0] = getMessage("sun");
+    this.spanishAnswer[1] = getMessage("cloud");
+    this.spanishAnswer[2] = getMessage("cat");
+    this.spanishAnswer[3] = getMessage("dog");
+    this.spanishAnswer[4] = getMessage("tree");
+    this.spanishAnswer[5] = getMessage("fish");
+    this.spanishAnswer[6] = getMessage("fruit");
+    this.spanishAnswer[7] = getMessage("worm");
+    this.spanishAnswer[8] = getMessage("bird");
+    this.spanishAnswer[9] = getMessage("crocodile");
+    this.spanishAnswer[10] = getMessage("book");
+    this.spanishAnswer[11] = getMessage("socks");
+    this.spanishAnswer[12] = getMessage("cup");
+    this.spanishAnswer[13] = getMessage("chair");
+};
+
+/**
+ * Flashcards.spanishDeckClicked() set the game to play through the this deck
+ * @private
+ */
+FlashCards.prototype.setSpanishDeck = function () {
+    "use strict";
+    this.whipCrackSound.play();
+    this.clear();
+    this.cardSet = "FlashCardSet-Spanish";
+    this.deckAnswer = this.spanishAnswer;
+    document.getElementById("card-title").innerHTML = getMessage("spanish");
+    document.getElementById("card-answer").style.color = "#000000";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
+    document.getElementById("card").innerHTML = '';
+};
+
+/**
+ *  Flashcards.spanishDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ *  @private
+ */
+FlashCards.prototype.spanishDeckClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    this.navPaneClicked();
+    this.setSpanishDeck();
+};
+
+/**
+ *  Flashcards.getColorDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  @private
+ */
+FlashCards.prototype.getColorDeckAnswers = function () {
+    "use strict";
+    this.colorAnswer = [];
+    this.colorAnswer[0] = getMessage("red");
+    this.colorAnswer[1] = getMessage("purple");
+    this.colorAnswer[2] = getMessage("blue");
+    this.colorAnswer[3] = getMessage("green");
+    this.colorAnswer[4] = getMessage("orange");
+    this.colorAnswer[5] = getMessage("yellow");
+};
+
+/**
+ *  Flashcards.getColorDeckColors() will set the text colors for each card in this deck 
+ * @private
+ */
+FlashCards.prototype.getColorDeckColors = function () {
+    "use strict";
+    this.colorHex = [];
+    this.colorHex[0] = "#dd0000";
+    this.colorHex[1] = "#7e0b80";
+    this.colorHex[2] = "#0000ff";
+    this.colorHex[3] = "#33cc33";
+    this.colorHex[4] = "#cc9933";
+    this.colorHex[5] = "#fef600";
+};
+
+/** 
+ * Flashcards.colorDeckClicked() set the game to play through the this deck
+ * @private
+ */
+FlashCards.prototype.setColorDeck = function () {
+    "use strict";
+    this.whipCrackSound.play();
+    this.clear();
+    this.cardSet = "FlashCardSet-Color";
+    this.deckAnswer = this.colorAnswer;
+    document.getElementById("card-title").innerHTML = getMessage("colors");
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card-answer").innerHTML = this.colorAnswer[this.cardCount];
+    document.getElementById("card-answer").style.color = this.colorHex[this.cardCount];
+    document.getElementById("card").innerHTML =	'';
+};
+
+/**
+ *  Flashcards.colorDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ * @private
+ */
+FlashCards.prototype.colorDeckClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    this.navPaneClicked();
+    this.setColorDeck();
+};
+
+/** 
+ * Flashcards.initNav() gets the localized strings for the game play screen, sets the default deck to Shapes
+ * @private
+ */
+FlashCards.prototype.initNav = function () {
+    "use strict";
+    this.backgroundSound.play();
+    document.getElementById("score-text").innerHTML = getMessage("scoreText");
+    document.getElementById("score-number").innerHTML = ": 0";
+    document.getElementById("card-title").innerHTML = getMessage("shapes");
+
+    this.getColorDeckAnswers();
+    this.getColorDeckColors();
+    this.getShapeDeckAnswers();
+    this.getCountingDeckAnswers();
+    this.getSpanishDeckAnswers();
+
+    this.setShapeDeck();
+};
+
+/**
+ *  Flashcards.playNowClicked() will initialize the game screen when Play Now button is clicked and hide the splash screen 
+ * @private
+ */
+FlashCards.prototype.playNowClicked = function () {
+    "use strict";
+    this.initNav();
+    document.getElementById("screen").style.display = "none";
+    document.getElementById("screen-nav").style.display = "inline";
+};
+
+/**
+ * Flashcards.isLastCard() 
+ * @private
+ * @return true if card count is equal to the number of cards in the deck, else return false
+ */
+FlashCards.prototype.isLastCard = function () {
+    "use strict";
+    if ((this.deckAnswer.length) === this.cardCount) {
+        return true;
+    }
+    return false;
+};
+
+/**
+ * Flashcards.drawStars() draws the stars for right and wrong answers
+ * @private
+ */
+FlashCards.prototype.drawStars = function () {
+    "use strict";
+    var star,
+        count,
+        container;
+
+    //paint correct stars equal to rightCount
+    for (count = 1; count <= this.rightCount; count = count + 1) {
+        star = document.createElement("img");
+        star.setAttribute('src', 'images/FC_Star_120911_a.png');
+        star.setAttribute('id', ('star' + count));
+        star.setAttribute('class', ('star'));
+        container = document.getElementById("screen-nav");
+        container.appendChild(star);
+    }
+
+    //paint remaining stars as empty stars
+    for (count = (this.rightCount + 1); count <= (this.deckAnswer.length); count = count + 1) {
+        star = document.createElement("img");
+        star.setAttribute('src', 'images/FC_Star_120911_b.png');
+        star.setAttribute('id', ('star' + count));
+        star.setAttribute('class', ('star'));
+        container = document.getElementById("screen-nav");
+        container.appendChild(star);
+    }
+};
+
+ /**
+ * Flashcards.endGame() opens nav pane, plays audio sound for end of game, shows correct star score and replay button
+ * @private
+ */
+FlashCards.prototype.endGame = function () {
+    "use strict";
+    this.trumpetFanfareSound.play();
+    this.endGameFlag = true;
+
+    this.navPaneToggle();
+    document.getElementById("card-flip").setAttribute("id", "current-card");
+    document.getElementById("card").style.backgroundImage = "url('images/FC_BlankCard_021512_a.png')";
+
+    this.drawStars();
+
+    //if user got more right than wrong then show localized strings for "good job" else show localized strings for "try again" 
+    if (((this.deckAnswer.length) - this.rightCount) < this.rightCount) {
+        document.getElementById("card-answer").innerHTML = getMessage("goodJob");
+    } else {
+        document.getElementById("card-answer").innerHTML = getMessage("tryAgain");
+    }
+
+    //set card answer color and display replay button
+    document.getElementById("card-answer").style.color = "#499aff";
+    document.getElementById("card-answer").style.opacity = "1";
+    document.getElementById("replay-button").style.display = "inline";
+};
+
+/**
+ * Flashcards.flipCard() hide answers and moves to next card in the deck, increments counters and checks for end game state
+ * @private
+ */
+FlashCards.prototype.flipCard = function () {
+    "use strict";
+    this.hideAnswer();
+    document.getElementById("current-card").setAttribute("id", "card-flip");
+    this.cardCount = this.cardCount + 1;
+    if (!this.isLastCard()) {
+        this.cardFlipSound.play();
+        document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+        document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
+        if (this.cardSet === "FlashCardSet-Color") {
+            document.getElementById("card-answer").style.color = this.deckAnswer[this.cardCount];
+        }
         document.getElementById("card-flip").setAttribute("id", "current-card");
-        document.getElementById("card").style.backgroundImage = "url('images/FC_BlankCard_021512_a.png')";
+    } else {
+        this.endGame();
+    }
+};
 
-        //paint correct stars equal to rightCount
-        for (count = 1; count <= rightCount; count = count + 1) {
-            star = document.createElement("img");
-            star.setAttribute('src', 'images/FC_Star_120911_a.png');
-            star.setAttribute('id', ('star' + count));
-            star.setAttribute('class', ('star'));
-            container = document.getElementById("screen-nav");
-            container.appendChild(star);
-        }
+/**
+ * Flashcards.wrongButtonClicked() plays audio sounds, increments wrongCount and calls flipCard()
+ * @private
+ */
+FlashCards.prototype.wrongButtonClicked = function () {
+    "use strict";
+    this.wrongAnswerSound.play();
+    this.buttonClickSound.play();
+    this.flipCard();
+};
 
-        //paint remaining stars as empty stars
-        for (count = (rightCount + 1); count <= lastCard; count = count + 1) {
-            star = document.createElement("img");
-            star.setAttribute('src', 'images/FC_Star_120911_b.png');
-            star.setAttribute('id', ('star' + count));
-            star.setAttribute('class', ('star'));
-            container = document.getElementById("screen-nav");
-            container.appendChild(star);
-        }
+/**
+ * Flashcards.rightButtonClicked() plays audio sounds, increments rightCount and calls flipCard()
+ * @private
+ */
+FlashCards.prototype.rightButtonClicked = function () {
+    "use strict";
+    this.rightAnswerSound.play();
+    this.buttonClickSound.play();
+    this.rightCount = this.rightCount + 1;
+    this.flipCard();
+    document.getElementById("score-number").innerHTML = ": " + this.rightCount;
+};
 
-        //if user got more right than wrong then show localized strings for "good job" else show localized strings for "try again" 
-        if (wrongCount < rightCount) {
-            document.getElementById("card-answer").innerHTML = getMessage("goodjob");
-        } else {
-            document.getElementById("card-answer").innerHTML = getMessage("tryagain");
-        }
-        //set card answer color and display replay button
-        document.getElementById("card-answer").style.color = "#499aff";
-        document.getElementById("card-answer").style.opacity = "1";
-        document.getElementById("replay-button").style.display = "inline";
+/**
+ * Flashcards.replayButtonClicked() restarts current game and calls clear()
+ * @private
+ */
+FlashCards.prototype.replayButtonClicked = function () {
+    "use strict";
+    if (this.cardSet === "FlashCardSet-Color") {
+        this.colorDeckClicked();
+    } else if (this.cardSet === "FlashCardSet-Shapes") {
+        this.shapeDeckClicked();
+    } else if (this.cardSet === "FlashCardSet-Spanish") {
+        this.spanishDeckClicked();
+    } else if (this.cardSet === "FlashCardSet-Counting") {
+        this.countingDeckClicked();
+    }
+    this.clear();
+};
+
+/**
+ * Flashcards.showAnswer() will show right and wrong buttons, answer and set cursor type
+ * @private
+ */
+FlashCards.prototype.showAnswer = function () {
+    "use strict";
+    document.getElementById("wrong-button").style.display = "inline";
+    document.getElementById("right-button").style.display = "inline";
+    document.getElementById("card-answer").style.opacity = "1";
+    document.getElementById("card").style.cursor = "default";
+    document.getElementById("card-answer").style.cursor = "default";
+};
+
+/**
+ * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
+ * @private
+ */
+FlashCards.prototype.cardClicked = function () {
+    "use strict";
+    this.buttonClickSound.play();
+    if (document.getElementById("nav-pane-animation-open")) {
+        this.swooshSound.play();
+        document.getElementById("nav-pane-animation-open").setAttribute("id", "nav-pane-animation-close");
     }
 
-    /**
-     * Flashcards.flipCard() hide answers and moves to next card in the deck, increments counters and checks for end game state
-     */
-    function flipCard() {
-        hideAnswer();
-        document.getElementById("current-card").setAttribute("id", "card-flip");
-        cardCount = cardCount + 1;
-        if (!isLastCard()) {
-            sound_cardflip.play();
-            document.getElementById("card").style.backgroundImage = "url('images/" + cardSet + '_' + cardCount + ".png')";
-            document.getElementById("card-answer").innerHTML = deckAnswer[cardCount];
-            if (cardSet === "FlashCardSet-Color") {
-                document.getElementById("card-answer").style.color = deckAnswer[cardCount];
-            }
-            document.getElementById("card-flip").setAttribute("id", "current-card");
-        } else {
-            endGame();
-        }
+    if (!this.endGameFlag) {
+        this.showAnswer();
     }
+};
 
-    /**
-     * Flashcards.wrongButtonClicked() plays audio sounds, increments wrongCount and calls flipCard()
-     */
-    function wrongButtonClicked() {
-        sound_thumbbutton.play();
-        sound_buttonclick.play();
-        wrongCount = wrongCount + 1;
-        flipCard();
-    }
-
-    /**
-     * Flashcards.rightButtonClicked() plays audio sounds, increments rightCount and calls flipCard()
-     */
-    function rightButtonClicked() {
-        sound_starbutton.play();
-        sound_buttonclick.play();
-        rightCount = rightCount + 1;
-        flipCard();
-        document.getElementById("score-text").innerHTML = getMessage("score_text") + ": " + rightCount;
-    }
-
-    /**
-     * Flashcards.replayButtonClicked() restarts current game and calls clear()
-     */
-    function replayButtonClicked() {
-        if (cardSet === "FlashCardSet-Color") {
-            colorDeckClicked();
-        } else if (cardSet === "FlashCardSet-Shapes") {
-            shapeDeckClicked();
-        } else if (cardSet === "FlashCardSet-Spanish") {
-            spanishDeckClicked();
-        } else if (cardSet === "FlashCardSet-Counting") {
-            countingDeckClicked();
-        }
-        clear();
-    }
-
-    /**
-     * Flashcards.showAnswer() will show right and wrong buttons, answer and set cursor type
-     */
-    function showAnswer() {
-        document.getElementById("wrong-button").style.display = "inline";
-        document.getElementById("right-button").style.display = "inline";
-        document.getElementById("card-answer").style.opacity = "1";
-        document.getElementById("card").style.cursor = "default";
-        document.getElementById("card-answer").style.cursor = "default";
-    }
-
-    /**
-     * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
-     */
-    function cardClicked() {
-        sound_buttonclick.play();
-        if (document.getElementById("nav-pane-animation-open")) {
-            sound_navpane.play();
-            document.getElementById("nav-pane-animation-open").setAttribute("id", "nav-pane-animation-close");
-        }
-
-        if (!endGameFlag) {
-            showAnswer();
-        }
-    }
-
-    function setEventListeners() {
-        document.getElementById("playButton").addEventListener('click', function () {
-            playNowClicked();
-        }, false);
-        document.getElementById("nav-pane").addEventListener('click', function () {
-            navPaneClicked();
-        }, false);
-        document.getElementById("shapes_deck").addEventListener('click', function () {
-            shapeDeckClicked();
-        }, false);
-        document.getElementById("color_deck").addEventListener('click', function () {
-            colorDeckClicked();
-        }, false);
-        document.getElementById("counting_deck").addEventListener('click', function () {
-            countingDeckClicked();
-        }, false);
-        document.getElementById("spanish_deck").addEventListener('click', function () {
-            spanishDeckClicked();
-        }, false);
-        document.getElementById("card").addEventListener('click', function () {
-            cardClicked();
-        }, false);
-        document.getElementById("card-answer").addEventListener('click', function () {
-            cardClicked();
-        }, false);
-        document.getElementById("wrong-button").addEventListener('click', function () {
-            wrongButtonClicked();
-        }, false);
-        document.getElementById("right-button").addEventListener('click', function () {
-            rightButtonClicked();
-        }, false);
-        document.getElementById("replay-button").addEventListener('click', function () {
-            replayButtonClicked();
-        }, false);
-        document.getElementById("help_icon").addEventListener('click', function () {
-            helpClicked();
-        }, false);
-        document.getElementById("help_close").addEventListener('click', function () {
-            helpCloseClicked();
-        }, false);
-    }
-
-    /**
-    * Flashcards.init() will set the license, play intro sound, and set splash screen text 
-    */
-    function init() {
-        license_init("license", "screen");
-        sound_intro.play();
-        document.getElementById("appName").innerHTML = getMessage("appName");
-        document.getElementById("adventure-text").innerHTML = getMessage("adventure_text");
-        document.getElementById("cards-text").innerHTML = getMessage("cards_text");
-        document.getElementById("play_button-text").innerHTML = getMessage("play_button_text");
-        document.getElementById("screen-nav").style.display = "none";
-        setEventListeners();
-    }
-
-    window.addEventListener('load', function () {
-        "use strict";
-        init();
-        //hack to get active state to work on webkit
-        window.touchstart = function (e) {};
+/**
+ * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
+ * @private
+ */
+FlashCards.prototype.setEventListeners = function () {
+    "use strict";
+    var self = this;
+    document.getElementById("play-button").addEventListener('click', function () {
+        self.playNowClicked();
     }, false);
-})();
+    document.getElementById("nav-pane").addEventListener('click', function () {
+        self.navPaneClicked();
+    }, false);
+    document.getElementById("shapes-deck").addEventListener('click', function () {
+        self.shapeDeckClicked();
+    }, false);
+    document.getElementById("color-deck").addEventListener('click', function () {
+        self.colorDeckClicked();
+    }, false);
+    document.getElementById("counting-deck").addEventListener('click', function () {
+        self.countingDeckClicked();
+    }, false);
+    document.getElementById("spanish-deck").addEventListener('click', function () {
+        self.spanishDeckClicked();
+    }, false);
+    document.getElementById("card").addEventListener('click', function () {
+        self.cardClicked();
+    }, false);
+    document.getElementById("card-answer").addEventListener('click', function () {
+        self.cardClicked();
+    }, false);
+    document.getElementById("wrong-button").addEventListener('click', function () {
+        self.wrongButtonClicked();
+    }, false);
+    document.getElementById("right-button").addEventListener('click', function () {
+        self.rightButtonClicked();
+    }, false);
+    document.getElementById("replay-button").addEventListener('click', function () {
+        self.replayButtonClicked();
+    }, false);
+    document.getElementById("help-icon").addEventListener('click', function () {
+        self.helpClicked();
+    }, false);
+    document.getElementById("help-close").addEventListener('click', function () {
+        self.helpCloseClicked();
+    }, false);
+};
 
+/**
+* Flashcards.initSound will initialize all the sound id's for each sound file 
+* @private
+*/
+FlashCards.prototype.initSound = function () {
+    "use strict";
+    this.buttonClickSound = new GameSound("sound-buttonclick");
+    this.adventureThemeSound = new GameSound("sound-intro", true);
+    this.cardFlipSound = new GameSound("sound-cardflip");
+    this.backgroundSound = new GameSound("sound-background", true);
+    this.swooshSound = new GameSound("sound-navpane");
+    this.trumpetFanfareSound = new GameSound("sound-end");
+    this.rightAnswerSound = new GameSound("sound-starbutton");
+    this.wrongAnswerSound = new GameSound("sound-thumbbutton");
+    this.whipCrackSound = new GameSound("sound-begin");
+};
+
+/**
+* Flashcards.init() will set the license, play intro sound, and set splash screen text 
+* @private
+*/
+FlashCards.prototype.init = function () {
+    "use strict";
+    license_init("license", "screen");
+    this.initSound();
+    this.adventureThemeSound.play();
+    document.getElementById("app-name").innerHTML = getMessage("appName");
+    document.getElementById("adventure-text").innerHTML = getMessage("adventureText");
+    document.getElementById("cards-text").innerHTML = getMessage("cardsText");
+    document.getElementById("play-button-text").innerHTML = getMessage("playButtonText");
+    document.getElementById("screen-nav").style.display = "none";
+    this.setEventListeners();
+};
+
+window.addEventListener('load', function () {
+    "use strict";
+    var App = new FlashCards();
+    App.init();
+    //hack to get active state to work on webkit
+    this.touchstart = function (e) {};
+}, false);
