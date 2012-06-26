@@ -108,7 +108,7 @@ body{
 	position: absolute;
 	text-align: center;
 	left: 308px;
-	top: -65px;
+	top: 15px;
 	font-family: Carter One;
 	font-size: 81px;
 	color: #ffffff;
@@ -149,7 +149,7 @@ body{
 	position: absolute;
 	left: 381px;
 	text-align: center;
-	top: 275px;
+	top: 360px;
 	font-family: Carter One;
 	font-size: 83px;
 	color: #ffffff;
@@ -192,7 +192,7 @@ body{
 	font-size: 60px;
 	width: 307px;
 	height: 83px;
-	top: -65px;
+	top: -5px;
 	color: #ffffff;
 	cursor: pointer;
 }
@@ -233,8 +233,8 @@ body{
 	position: absolute;
 	height:  391px;
 	width: 157px;
-	top: 60px;
-	left: 13px;
+	top: 90px;
+	left: 15px;
 	background-color: #333333;
 	color: #555753;
 	border-radius: 10px 10px;10px 10px;
@@ -250,8 +250,8 @@ body{
 
 #shapes-deck{
 	position: absolute;
-	left: 20px;
-	top: 120px;
+	left: 7px;
+	top: 40px;
 	width: 150px;
 	height: 89px;
 	background-image: url('../images/FC_NavCards-shapes_120911_a.png');
@@ -261,8 +261,8 @@ body{
 
 #color-deck{
 	position: absolute;
-	left: 19px;
-	top: 260px;
+	left: 6px;
+	top: 180px;
 	width: 151px;
 	height: 93px;
 	background-image: url("../images/FC_NavCards-colors_120911_a.png" );
@@ -272,8 +272,8 @@ body{
 
 #counting-deck{
 	position: absolute;
-	left: 21px;
-	top: 340px;
+	left: 8px;
+	top: 260px;
 	width: 149px;
 	height: 84px;
 	background-image: url("../images/FC_NavCards-counting_120911_a.png");
@@ -283,8 +283,8 @@ body{
 
 #spanish-deck{
 	position: absolute;
-	left: 21px;
-	top: 200px;
+	left: 8px;
+	top: 120px;
 	width: 149px;
 	height: 87px;
 	background-image: url('../images/FC_NavCards-Spanish_021512_a.png');
