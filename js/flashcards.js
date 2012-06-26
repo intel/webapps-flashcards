@@ -518,17 +518,43 @@ FlashCards.prototype.cardClicked = function () {
 };
 
 /**
+* Flashcards.scrollNavPane will scroll the navigation Pane the direction the user moves the mouse
+* @private
+*/
+FlashCards.prototype.scrollNavPane = function (delta) {
+    document.getElementById("shapes-deck").style.webkitTransform = "translateY("+delta+"px)";
+    document.getElementById("color-deck").style.webkitTransform = "translateY("+delta+"px)";
+    document.getElementById("counting-deck").style.webkitTransform = "translateY("+delta+"px)";
+    document.getElementById("spanish-deck").style.webkitTransform = "translateY("+delta+"px)";
+};
+
+/**
  * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
  * @private
  */
 FlashCards.prototype.setEventListeners = function () {
     "use strict";
-    var self = this;
+    var self = this,
+        starty = 0, //starting y coordinate of drag
+        isDrag = -1; //flag for qualifying drag event
     document.getElementById("play-button").addEventListener('click', function () {
         self.playNowClicked();
     }, false);
     document.getElementById("nav-pane").addEventListener('click', function () {
         self.navPaneClicked();
+    }, false);
+    document.getElementById("clear-scroll").addEventListener('mousedown', function (e) {
+        starty = e.clientY;
+        isDrag = 0; //mouse down
+    }, false);
+     document.getElementById("clear-scroll").addEventListener('mousemove', function (e) {
+        isDrag = 1; //mouse move
+    }, false);
+     document.getElementById("clear-scroll").addEventListener('mouseup', function (e) {
+        if(isDrag === 1) { //if equals 1 is drag event
+            self.scrollNavPane((-1)*(starty-e.clientY));
+        }
+        isDrag = -1; //regardless reset endy 
     }, false);
     document.getElementById("shapes-deck").addEventListener('click', function () {
         self.shapeDeckClicked();

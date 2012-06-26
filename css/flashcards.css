@@ -229,6 +229,19 @@ body{
 	z-index: 5;
 }
 
+#clear-scroll{
+	position: absolute;
+	height:  391px;
+	width: 157px;
+	top: 90px;
+	left: 15px;
+	background-color: transparent;
+	color: #555753;
+	border-radius: 10px 10px 10px 10px;
+	z-index: 5;
+	overflow: hidden;
+}
+
 #nav-pane-inner{
 	position: absolute;
 	height:  391px;
@@ -257,6 +270,7 @@ body{
 	background-image: url('../images/FC_NavCards-shapes_120911_a.png');
 	z-index: 7;
 	cursor: pointer;
+	-webkit-transition: all 1s ease-in-out;
 }
 
 #color-deck{
@@ -268,6 +282,7 @@ body{
 	background-image: url("../images/FC_NavCards-colors_120911_a.png" );
 	z-index: 5;
 	cursor: pointer;
+	-webkit-transition: all 1s ease-in-out;
 }
 
 #counting-deck{
@@ -279,6 +294,7 @@ body{
 	background-image: url("../images/FC_NavCards-counting_120911_a.png");
 	z-index: 4;
 	cursor: pointer;
+	-webkit-transition: all 1s ease-in-out;
 }
 
 #spanish-deck{
@@ -290,6 +306,7 @@ body{
 	background-image: url('../images/FC_NavCards-Spanish_021512_a.png');
 	z-index: 6;
 	cursor: pointer;
+	-webkit-transition: all 1s ease-in-out;
 }
 
 #score-text{
