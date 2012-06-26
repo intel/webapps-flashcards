@@ -109,7 +109,7 @@ body{
 	text-align: center;
 	left: 308px;
 	top: 15px;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 81px;
 	color: #ffffff;
 	z-index: 3;
@@ -150,7 +150,7 @@ body{
 	left: 381px;
 	text-align: center;
 	top: 360px;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 83px;
 	color: #ffffff;
 	z-index: 3;
@@ -188,7 +188,7 @@ body{
 {
 	position: absolute;
 	text-align: center;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 60px;
 	width: 307px;
 	height: 83px;
@@ -237,7 +237,7 @@ body{
 	left: 15px;
 	background-color: #333333;
 	color: #555753;
-	border-radius: 10px 10px;10px 10px;
+	border-radius: 10px 10px 10px 10px;
 	z-index: 4;
 }
 
@@ -298,7 +298,7 @@ body{
 	top: 505px;
 	left: 15px;
 	width: 157px;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 35px;
 	color: #ffffff;
 	z-index: 4;
@@ -311,7 +311,7 @@ body{
 	left: 107px;
 	top: 505px;
 	width: 157px;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 35px;
 	color: #ffffff;
 	z-index: 4;
@@ -334,7 +334,7 @@ body{
 	margin: 0px;
 	left: 200px;
 	top: 20px;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 41px;
 	color: #ffffff;
 	z-index: 3;
@@ -349,10 +349,9 @@ body{
 	width: 750px;
 	height: 100px;
 	text-align: center;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 65px;
 	opacity: 0;
-	color: #000000;
 	z-index: 3;
 	opacity: 0;
 	cursor: pointer;
@@ -388,9 +387,8 @@ body{
 	width: 771px;
 	height: 380px;
 	text-align: center;
-	font-family: Carter One;
+	font-family: "Carter One";
 	font-size: 230px;
-	color: #499aff;
 	z-index: 3;
 	cursor: pointer;
 }
@@ -576,7 +574,7 @@ body{
     margin: 0px;
     left: 215px;
     top: 160px;
-    font-family: Carter One;
+    font-family: "Carter One";
     font-size: 20px;
     color:  #5C3317;
     display: none;
@@ -593,7 +591,7 @@ body{
     margin: 0px;
     left: 910px;
     top: 105px;
-    font-family: Carter One;
+    font-family: "Carter One";
     font-size: 41px;
     color:  #5C3317;
     cursor: pointer;
@@ -605,11 +603,9 @@ body{
     position: absolute;
     width: 1024px;
     height: 600px;
-    background-color: black;
+    background-color: #000000;
     opacity: 0.5;
     cursor: default;
     display: none;
     z-index: 7;
-}
-			
-
+}		
