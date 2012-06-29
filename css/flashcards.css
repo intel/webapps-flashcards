@@ -455,12 +455,12 @@ body{
 	height: 105px;
 	z-index: 3;
 	display: none;
-	background-image: url('../images/FC_checkmark_white.png');
+	background-image: url('../images/CheckmarkButton.png');
 	cursor: pointer;
 }
 
 #right-button:active{
-	background-image: url('../images/FC_checkmark_color.png');
+	background-image: url('../images/CheckmarkButtonActive.png');
 }
 
 #replay-button{
