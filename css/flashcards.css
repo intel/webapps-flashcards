@@ -436,14 +436,14 @@ body{
 	opacity: 1;
 	width: 105px;
 	height: 105px;
-	background-image: url('../images/FC_x_white.png');
+	background-image: url('../images/CrossButton.png');
 	z-index: 2;
 	display: none;
 	cursor: pointer;
 }
 
 #wrong-button:active{
-	background-image: url('../images/FC_x_color.png');
+	background-image: url('../images/CrossButtonActive.png');
 }
 
 #right-button{
