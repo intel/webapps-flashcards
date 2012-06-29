@@ -470,14 +470,14 @@ body{
 	opacity: 1;
 	width: 105px;
 	height: 105px;
-	background-image: url('../images/FC_Replay_120911_a.png');
+	background-image: url('../images/ReplayButton.png');
 	z-index: 3;
 	display: none;
 	cursor: pointer;
 }
 
 #replay-button:active{
-	background-image: url('../images/FC_Replay_120911_b.png');
+	background-image: url('../images/ReplayButtonActive.png');
 }
 
 .star
