@@ -377,7 +377,7 @@ FlashCards.prototype.drawStars = function () {
     //paint correct stars equal to rightCount
     for (count = 1; count <= this.rightCount; count = count + 1) {
         star = document.createElement("img");
-        star.setAttribute('src', 'images/FC_Star_120911_a.png');
+        star.setAttribute('src', 'images/StarFilled.png');
         star.setAttribute('id', ('star' + count));
         star.setAttribute('class', ('star'));
         container = document.getElementById("screen-nav");
@@ -387,7 +387,7 @@ FlashCards.prototype.drawStars = function () {
     //paint remaining stars as empty stars
     for (count = (this.rightCount + 1); count <= (this.deckAnswer.length); count = count + 1) {
         star = document.createElement("img");
-        star.setAttribute('src', 'images/FC_Star_120911_b.png');
+        star.setAttribute('src', 'images/StarEmpty.png');
         star.setAttribute('id', ('star' + count));
         star.setAttribute('class', ('star'));
         container = document.getElementById("screen-nav");
