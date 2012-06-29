@@ -6,16 +6,48 @@ Prevent flicker on load
 Separate card object into it's own prototype to make adding of new decks simpler
 Separate card content from card backing to reduce memory footprint, then display card content onto FC_BlankCard_021512_a.png.
 Find creative commons audio for all cards decks
-Make the nav pane scrollable
 Add an alphabet deck with audio 
 Add card flip animation across the Z axis from left to right
-Convert app to jquery
 Animate different parts of the home screen (campfire, birds, etc.)
 
-Opens:
-Is there a better way to set the card deck type and files?
-Is there a way to parent the CSS to make this a one line toggle?
-Expensive to touch the dom should we create them once and then use display attributes?
-Would it be better to generate each answer array in var and then add it to the prototype?
-Use a CSS class to set shape properties?
-If getMessage returns the array of strings we don't need to assign by index?
+From code review:
+File structure comments: 
+-	xmp tags missing on two image files
+-	image file names should be renamed to not include date
+-	image files should separate content from card backing to reduce memory footprint
+
+Javascript comments:
+-	function FlashCards() { }; instead of var Flashcards = function(){};
+-	Group CSS items in div and turn on/off instead of setting properties in JS
+-	Remove “use strict” from all functions and place at the top of the file 
+	(function(){
+	  "use strict";
+	})();
+-	line  67 remove opacity attribute use display instead
+-	group line 65 into "answer div"
+-	inject stars in the init function then hide and show them using CSS
+-	change count = count +1 to count += 1
+-	Use gimp for color deck text hex colors, tenfour’s colors don’t match the cards
+-	Pull scoreText getMessage into init() function with the others
+-	Pull audio tags out of html that do not loop
+-	Change loop =”true” to loop=”loop”
+-	Line 297 wrong comment (copy paste error)
+-	Fix card flip animation using webkitTransitionEnd
+-	Line 510 should use the function toggleNavPane
+-	Set event listeners based on screen and init in separate functions
+-	Remove background div and add to image to css of ‘screen’
+-	Line 27 spelling of ribbon alt tag
+-	Height on the adventure and cards text and play now is too large
+-	Use HTML5 doctype NOT Transitional 4.1 <!DOCTYPE HTML>
+-	Include encoding: <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+-	Move audio tags at bottom of body not allowed in head
+-	Use divs instead of image tags and include source in CSS
+-	Checked for mixed spaces and tabs in index and css files
+-	CSS should be at the top of index.html 
+-	Use overflow: hidden for nav pane
+
+Please validate files before any commit:
+http://validator.w3.org/
+http://jigsaw.w3.org/css-validator/
+http://jslint.com/
+https://developers.google.com/closure/compiler/docs/gettingstarted_app 
