@@ -406,7 +406,7 @@ FlashCards.prototype.endGame = function () {
 
     this.navPaneToggle();
     document.getElementById("card-flip").setAttribute("id", "current-card");
-    document.getElementById("card").style.backgroundImage = "url('images/FC_BlankCard_021512_a.png')";
+    document.getElementById("card").style.backgroundImage = "url('images/BlankCard.png')";
 
     this.drawStars();
 

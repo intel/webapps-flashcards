@@ -4,7 +4,7 @@ Known issues:
 Wrong/right button images missing license
 Prevent flicker on load
 Separate card object into it's own prototype to make adding of new decks simpler
-Separate card content from card backing to reduce memory footprint, then display card content onto FC_BlankCard_021512_a.png.
+Separate card content from card backing to reduce memory footprint, then display card content onto BlankCard.png.
 Find creative commons audio for all cards decks
 Add an alphabet deck with audio 
 Add card flip animation across the Z axis from left to right
