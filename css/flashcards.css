@@ -267,7 +267,7 @@ body{
 	top: 40px;
 	width: 150px;
 	height: 89px;
-	background-image: url('../images/FC_NavCards-shapes_120911_a.png');
+	background-image: url('../images/NavCardShapes.png');
 	z-index: 7;
 	cursor: pointer;
 	-webkit-transition: all 1s ease-in-out;
@@ -279,7 +279,7 @@ body{
 	top: 180px;
 	width: 151px;
 	height: 93px;
-	background-image: url("../images/FC_NavCards-colors_120911_a.png" );
+	background-image: url("../images/NavCardColors.png" );
 	z-index: 5;
 	cursor: pointer;
 	-webkit-transition: all 1s ease-in-out;
@@ -291,7 +291,7 @@ body{
 	top: 260px;
 	width: 149px;
 	height: 84px;
-	background-image: url("../images/FC_NavCards-counting_120911_a.png");
+	background-image: url("../images/NavCardCounting.png");
 	z-index: 4;
 	cursor: pointer;
 	-webkit-transition: all 1s ease-in-out;
@@ -303,7 +303,7 @@ body{
 	top: 120px;
 	width: 149px;
 	height: 87px;
-	background-image: url('../images/FC_NavCards-Spanish_021512_a.png');
+	background-image: url('../images/NavCardSpanish.png');
 	z-index: 6;
 	cursor: pointer;
 	-webkit-transition: all 1s ease-in-out;
