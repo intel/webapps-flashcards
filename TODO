@@ -16,10 +16,6 @@ File structure comments:
 Javascript comments:
 -	function FlashCards() { }; instead of var Flashcards = function(){};
 -	Group CSS items in div and turn on/off instead of setting properties in JS
--	Remove “use strict” from all functions and place at the top of the file 
-	(function(){
-	  "use strict";
-	})();
 -	line  67 remove opacity attribute use display instead
 -	group line 65 into "answer div"
 -	inject stars in the init function then hide and show them using CSS
