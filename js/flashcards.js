@@ -24,9 +24,15 @@ var getMessage,
 	*  @constructor
 	*/
 	function FlashCards() {
+		this.cardDecks = {
+			COLORDECK: "ColorDeck",
+			SHAPEDECK: "ShapeDeck",
+			SPANISHDECK: "SpanishDeck",
+			COUNTINGDECK: "CountingDeck"
+		};
 	    this.cardCount = 0; //current game wrong answers 
 	    this.rightCount = 0; //current game right answers 
-	    this.cardSet = "FlashCardSet-Color"; //name of card set and file prefix
+	    this.cardSet = this.cardDecks.SHAPEDECK; //name of card set and file prefix
 	    this.endGameFlag = false; //endGame flag
 	    this.deckAnswer = []; //the array of answers for this deck
 	};
@@ -153,7 +159,7 @@ var getMessage,
 	FlashCards.prototype.setShapeDeck = function () {
 	    this.whipCrackSound.play();
 	    this.clear();
-	    this.cardSet = "ShapeDeck";
+	    this.cardSet = this.cardDecks.SHAPEDECK;
 	    this.deckAnswer = this.shapeAnswer;
 	    this.setCardContent();
 	    document.getElementById("card-title").innerHTML = getMessage("shapes");
@@ -198,7 +204,7 @@ var getMessage,
 	FlashCards.prototype.setCountingDeck = function () {
 	    this.whipCrackSound.play();
 	    this.clear();
-	    this.cardSet = "CountingDeck";
+	    this.cardSet = this.cardDecks.COUNTINGDECK;
 	    this.deckAnswer = this.countingAnswer;
 	    this.setCardContent();
 	    document.getElementById("card-title").innerHTML = getMessage("counting");
@@ -247,7 +253,7 @@ var getMessage,
 	FlashCards.prototype.setSpanishDeck = function () {
 	    this.whipCrackSound.play();
 	    this.clear();
-	    this.cardSet = "SpanishDeck";
+	    this.cardSet = this.cardDecks.SPANISHDECK;
 	    this.deckAnswer = this.spanishAnswer;
 	    this.setCardContent();
 	    document.getElementById("card-title").innerHTML = getMessage("spanish");
@@ -302,7 +308,7 @@ var getMessage,
 	FlashCards.prototype.setColorDeck = function () {
 	    this.whipCrackSound.play();
 	    this.clear();
-	    this.cardSet = "ColorDeck";
+	    this.cardSet = this.cardDecks.COLORDECK;
 	    this.deckAnswer = this.colorAnswer;
 	    this.setCardContent();
 	    document.getElementById("card-title").innerHTML = getMessage("colors");
@@ -432,7 +438,7 @@ var getMessage,
 		this.cardFlipSound.play();
 		this.setCardContent();
 		document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
-		if (this.cardSet === "FlashCardSet-Color") {
+		if (this.cardSet === this.cardDecks.COLORDECK) {
 		    document.getElementById("card-answer").style.color = this.deckAnswer[this.cardCount];
 		}
 		document.getElementById("card-flip").setAttribute("id", "current-card");
@@ -468,15 +474,15 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.replayButtonClicked = function () {
-	    if (this.cardSet === "ColorDeck") {
-		this.colorDeckClicked();
-	    } else if (this.cardSet === "ShapeDeck") {
-		this.shapeDeckClicked();
-	    } else if (this.cardSet === "SpanishDeck") {
-		this.spanishDeckClicked();
-	    } else if (this.cardSet === "CountingDeck") {
-		this.countingDeckClicked();
-	    }
+		if (this.cardSet === this.cardDecks.COLORDECK) {
+		    this.colorDeckClicked();
+		} else if (this.cardSet === this.cardDecks.SHAPEDECK) {
+		    this.shapeDeckClicked();
+		} else if (this.cardSet === this.cardDecks.SPANISHDECK) {
+		    this.spanishDeckClicked();
+		} else if (this.cardSet === this.cardDecks.COUNTINGDECK) {
+		    this.countingDeckClicked();
+		}
 	    this.clear();
 	};
 
