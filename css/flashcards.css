@@ -566,7 +566,7 @@ body{
 	top: 530px;
 	width: 44px;
 	height: 44px;
-	background-image: url('../images/Flashcards_help.png');
+	background-image: url('../images/HelpIcon.png');
 	z-index: 2;
 	cursor: pointer;
 }
