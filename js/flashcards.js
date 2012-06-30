@@ -17,7 +17,7 @@ var getMessage,
     document;
 
 /**
-* Flashcards() class contains all the variables and functions needed to run the flash card game 
+* FlashCards() class contains all the variables and functions needed to run the flash card game 
 *  @constructor
 */
 var FlashCards = function () {
@@ -30,7 +30,7 @@ var FlashCards = function () {
 };
 
 /**
- *  Flashcards.helpClicked() plays audio and makes the help card dialog visible when help icon is clicked 
+ *  FlashCards.helpClicked() plays audio and makes the help card dialog visible when help icon is clicked 
  *  @private
  */
 FlashCards.prototype.helpClicked = function () {
@@ -44,7 +44,7 @@ FlashCards.prototype.helpClicked = function () {
 };
 
 /* 
- * Flashcards.helpCloseClicked() plays audio and makes the help card dialog invisible when help X icon is clicked 
+ * FlashCards.helpCloseClicked() plays audio and makes the help card dialog invisible when help X icon is clicked 
  * @private
  */
 FlashCards.prototype.helpCloseClicked = function () {
@@ -57,7 +57,7 @@ FlashCards.prototype.helpCloseClicked = function () {
 };
 
  /** 
- * Flashcards.hideAnswer() will hide the wrong and right buttons and answer text reseting the cursor style
+ * FlashCards.hideAnswer() will hide the wrong and right buttons and answer text reseting the cursor style
  * @private
  */
 FlashCards.prototype.hideAnswer = function () {
@@ -70,7 +70,7 @@ FlashCards.prototype.hideAnswer = function () {
 };
 
 /** 
- * Flashcards.clear() will reset game counters, hide stars, replay button, answers, and reset the score
+ * FlashCards.clear() will reset game counters, hide stars, replay button, answers, and reset the score
  * @private
  */
 FlashCards.prototype.clear = function () {
@@ -96,7 +96,7 @@ FlashCards.prototype.clear = function () {
 };
 
 /**
- *  Flashcards.navPaneToggle() opens or closes nav pane and plays nav pane sound effect
+ *  FlashCards.navPaneToggle() opens or closes nav pane and plays nav pane sound effect
  * @private
  */
 FlashCards.prototype.navPaneToggle = function () {
@@ -110,7 +110,7 @@ FlashCards.prototype.navPaneToggle = function () {
 };
 
 /**
- *  Flashcards.navPaneClicked() plays button click audio, opens or closes nav pane and plays nav pane sound effect
+ *  FlashCards.navPaneClicked() plays button click audio, opens or closes nav pane and plays nav pane sound effect
  * @private
  */
 FlashCards.prototype.navPaneClicked = function () {
@@ -120,7 +120,7 @@ FlashCards.prototype.navPaneClicked = function () {
 };
 
 /**
- *  Flashcards.getShapeDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  FlashCards.getShapeDeckAnswers() will call getMessage to get the localized answers for this deck 
  *  @private
  */
 FlashCards.prototype.getShapeDeckAnswers = function () {
@@ -152,7 +152,7 @@ FlashCards.prototype.setCardContent = function () {
 }
 
 /**
- *  Flashcards.shapeDeckClicked() set the game to play through the this deck
+ *  FlashCards.shapeDeckClicked() set the game to play through the this deck
  * @private
  */
 FlashCards.prototype.setShapeDeck = function () {
@@ -170,7 +170,7 @@ FlashCards.prototype.setShapeDeck = function () {
 };
 
 /** 
- * Flashcards.shapeDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ * FlashCards.shapeDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
  * @private
  */
 FlashCards.prototype.shapeDeckClicked = function () {
@@ -181,7 +181,7 @@ FlashCards.prototype.shapeDeckClicked = function () {
 };
 
 /**
- *  Flashcards.getCountingDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  FlashCards.getCountingDeckAnswers() will call getMessage to get the localized answers for this deck 
  *  @private
  */
 FlashCards.prototype.getCountingDeckAnswers = function () {
@@ -200,7 +200,7 @@ FlashCards.prototype.getCountingDeckAnswers = function () {
 };
 
 /**
- *  Flashcards.countingDeckClicked() set the game to play through the this deck 
+ *  FlashCards.setCountingDeck() set the game to play through the this deck 
  *  @private
  */
 FlashCards.prototype.setCountingDeck = function () {
@@ -218,7 +218,7 @@ FlashCards.prototype.setCountingDeck = function () {
 };
 
 /**
- * Flashcards.countingDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck
+ * FlashCards.countingDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck
  * @private
  */
 FlashCards.prototype.countingDeckClicked = function () {
@@ -229,7 +229,7 @@ FlashCards.prototype.countingDeckClicked = function () {
 };
 
 /**
- *  Flashcards.getSpanishDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  FlashCards.getSpanishDeckAnswers() will call getMessage to get the localized answers for this deck 
  *  @private
  */
 FlashCards.prototype.getSpanishDeckAnswers = function () {
@@ -252,7 +252,7 @@ FlashCards.prototype.getSpanishDeckAnswers = function () {
 };
 
 /**
- * Flashcards.spanishDeckClicked() set the game to play through the this deck
+ * FlashCards.setSpanishDeck() set the game to play through the this deck
  * @private
  */
 FlashCards.prototype.setSpanishDeck = function () {
@@ -270,7 +270,7 @@ FlashCards.prototype.setSpanishDeck = function () {
 };
 
 /**
- *  Flashcards.spanishDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ *  FlashCards.spanishDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
  *  @private
  */
 FlashCards.prototype.spanishDeckClicked = function () {
@@ -281,7 +281,7 @@ FlashCards.prototype.spanishDeckClicked = function () {
 };
 
 /**
- *  Flashcards.getColorDeckAnswers() will call getMessage to get the localized answers for this deck 
+ *  FlashCards.getColorDeckAnswers() will call getMessage to get the localized answers for this deck 
  *  @private
  */
 FlashCards.prototype.getColorDeckAnswers = function () {
@@ -296,7 +296,7 @@ FlashCards.prototype.getColorDeckAnswers = function () {
 };
 
 /**
- *  Flashcards.getColorDeckColors() will set the text colors for each card in this deck 
+ *  FlashCards.getColorDeckColors() will set the text colors for each card in this deck 
  * @private
  */
 FlashCards.prototype.getColorDeckColors = function () {
@@ -311,7 +311,7 @@ FlashCards.prototype.getColorDeckColors = function () {
 };
 
 /** 
- * Flashcards.colorDeckClicked() set the game to play through the this deck
+ * FlashCards.setColorDeck set the game to play through the this deck
  * @private
  */
 FlashCards.prototype.setColorDeck = function () {
@@ -329,7 +329,7 @@ FlashCards.prototype.setColorDeck = function () {
 };
 
 /**
- *  Flashcards.colorDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
+ *  FlashCards.colorDeckClicked() plays the button click audio, navPane animation, and calls the setter for this deck 
  * @private
  */
 FlashCards.prototype.colorDeckClicked = function () {
@@ -340,7 +340,7 @@ FlashCards.prototype.colorDeckClicked = function () {
 };
 
 /** 
- * Flashcards.initNav() gets the localized strings for the game play screen, sets the default deck to Shapes
+ * FlashCards.initNav() gets the localized strings for the game play screen, sets the default deck to Shapes
  * @private
  */
 FlashCards.prototype.initNav = function () {
@@ -360,7 +360,7 @@ FlashCards.prototype.initNav = function () {
 };
 
 /**
- *  Flashcards.playNowClicked() will initialize the game screen when Play Now button is clicked and hide the splash screen 
+ *  FlashCards.playNowClicked() will initialize the game screen when Play Now button is clicked and hide the splash screen 
  * @private
  */
 FlashCards.prototype.playNowClicked = function () {
@@ -371,7 +371,7 @@ FlashCards.prototype.playNowClicked = function () {
 };
 
 /**
- * Flashcards.isLastCard() 
+ * FlashCards.isLastCard() 
  * @private
  * @return true if card count is equal to the number of cards in the deck, else return false
  */
@@ -384,7 +384,7 @@ FlashCards.prototype.isLastCard = function () {
 };
 
 /**
- * Flashcards.drawStars() draws the stars for right and wrong answers
+ * FlashCards.drawStars() draws the stars for right and wrong answers
  * @private
  */
 FlashCards.prototype.drawStars = function () {
@@ -415,7 +415,7 @@ FlashCards.prototype.drawStars = function () {
 };
 
  /**
- * Flashcards.endGame() opens nav pane, plays audio sound for end of game, shows correct star score and replay button
+ * FlashCards.endGame() opens nav pane, plays audio sound for end of game, shows correct star score and replay button
  * @private
  */
 FlashCards.prototype.endGame = function () {
@@ -443,7 +443,7 @@ FlashCards.prototype.endGame = function () {
 };
 
 /**
- * Flashcards.flipCard() hide answers and moves to next card in the deck, increments counters and checks for end game state
+ * FlashCards.flipCard() hide answers and moves to next card in the deck, increments counters and checks for end game state
  * @private
  */
 FlashCards.prototype.flipCard = function () {
@@ -465,7 +465,7 @@ FlashCards.prototype.flipCard = function () {
 };
 
 /**
- * Flashcards.wrongButtonClicked() plays audio sounds, increments wrongCount and calls flipCard()
+ * FlashCards.wrongButtonClicked() plays audio sounds, increments wrongCount and calls flipCard()
  * @private
  */
 FlashCards.prototype.wrongButtonClicked = function () {
@@ -476,7 +476,7 @@ FlashCards.prototype.wrongButtonClicked = function () {
 };
 
 /**
- * Flashcards.rightButtonClicked() plays audio sounds, increments rightCount and calls flipCard()
+ * FlashCards.rightButtonClicked() plays audio sounds, increments rightCount and calls flipCard()
  * @private
  */
 FlashCards.prototype.rightButtonClicked = function () {
@@ -489,7 +489,7 @@ FlashCards.prototype.rightButtonClicked = function () {
 };
 
 /**
- * Flashcards.replayButtonClicked() restarts current game and calls clear()
+ * FlashCards.replayButtonClicked() restarts current game and calls clear()
  * @private
  */
 FlashCards.prototype.replayButtonClicked = function () {
@@ -507,7 +507,7 @@ FlashCards.prototype.replayButtonClicked = function () {
 };
 
 /**
- * Flashcards.showAnswer() will show right and wrong buttons, answer and set cursor type
+ * FlashCards.showAnswer() will show right and wrong buttons, answer and set cursor type
  * @private
  */
 FlashCards.prototype.showAnswer = function () {
@@ -520,7 +520,7 @@ FlashCards.prototype.showAnswer = function () {
 };
 
 /**
- * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
+ * FlashCards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
  * @private
  */
 FlashCards.prototype.cardClicked = function () {
@@ -537,7 +537,7 @@ FlashCards.prototype.cardClicked = function () {
 };
 
 /**
-* Flashcards.scrollNavPane will scroll the navigation Pane the direction the user moves the mouse
+* FlashCards.scrollNavPane will scroll the navigation Pane the direction the user moves the mouse
 * @private
 */
 FlashCards.prototype.scrollNavPane = function (delta) {
@@ -548,7 +548,7 @@ FlashCards.prototype.scrollNavPane = function (delta) {
 };
 
 /**
- * Flashcards.cardClicked() plays button click sound, makes sure the nav pane is closed, and if not end game state will call showAnswer()
+ * FlashCards.setEventListeners sets event handlers for the game
  * @private
  */
 FlashCards.prototype.setEventListeners = function () {
@@ -611,7 +611,7 @@ FlashCards.prototype.setEventListeners = function () {
 };
 
 /**
-* Flashcards.initSound will initialize all the sound id's for each sound file 
+* FlashCards.initSound will initialize all the sound id's for each sound file 
 * @private
 */
 FlashCards.prototype.initSound = function () {
@@ -628,7 +628,7 @@ FlashCards.prototype.initSound = function () {
 };
 
 /**
-* Flashcards.init() will set the license, play intro sound, and set splash screen text 
+* FlashCards.init() will set the license, play intro sound, and set splash screen text 
 * @private
 */
 FlashCards.prototype.init = function () {
