@@ -137,6 +137,21 @@ FlashCards.prototype.getShapeDeckAnswers = function () {
 };
 
 /**
+ *  FlashCards.setCardContent() sets the image centered horizontally in the card
+ * @private
+ */
+FlashCards.prototype.setCardContent = function () {
+    var img = new Image();
+    img.src = '../images/' + this.cardSet + this.cardCount + '.png';
+    img.onload = function(){
+	document.getElementById("card").style.width = img.width+"px";
+	document.getElementById("card").style.height = img.height+"px";
+	document.getElementById("card").style.top = (160-(img.height/2))+"px";
+	document.getElementById("card").style.backgroundImage = 'url('+ img.src +')';
+    };
+}
+
+/**
  *  Flashcards.shapeDeckClicked() set the game to play through the this deck
  * @private
  */
@@ -144,11 +159,12 @@ FlashCards.prototype.setShapeDeck = function () {
     "use strict";
     this.whipCrackSound.play();
     this.clear();
-    this.cardSet = "FlashCardSet-Shapes";
+    this.cardSet = "ShapeDeck";
     this.deckAnswer = this.shapeAnswer;
+    this.setCardContent();
     document.getElementById("card-title").innerHTML = getMessage("shapes");
     document.getElementById("card-answer").style.color = "#499aff";
-    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + (this.cardCount) + ".png')";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + this.cardCount + ".png')";
     document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
     document.getElementById("card").innerHTML = '';
 };
@@ -191,11 +207,12 @@ FlashCards.prototype.setCountingDeck = function () {
     "use strict";
     this.whipCrackSound.play();
     this.clear();
-    this.cardSet = "FlashCardSet-Counting";
+    this.cardSet = "CountingDeck";
     this.deckAnswer = this.countingAnswer;
+    this.setCardContent();
     document.getElementById("card-title").innerHTML = getMessage("counting");
     document.getElementById("card-answer").style.color = "navy";
-    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + this.cardCount + ".png')";
     document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
     document.getElementById("card").innerHTML = '';
 };
@@ -242,11 +259,12 @@ FlashCards.prototype.setSpanishDeck = function () {
     "use strict";
     this.whipCrackSound.play();
     this.clear();
-    this.cardSet = "FlashCardSet-Spanish";
+    this.cardSet = "SpanishDeck";
     this.deckAnswer = this.spanishAnswer;
+    this.setCardContent();
     document.getElementById("card-title").innerHTML = getMessage("spanish");
     document.getElementById("card-answer").style.color = "#000000";
-    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + this.cardCount + ".png')";
     document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
     document.getElementById("card").innerHTML = '';
 };
@@ -300,10 +318,11 @@ FlashCards.prototype.setColorDeck = function () {
     "use strict";
     this.whipCrackSound.play();
     this.clear();
-    this.cardSet = "FlashCardSet-Color";
+    this.cardSet = "ColorDeck";
     this.deckAnswer = this.colorAnswer;
+    this.setCardContent();
     document.getElementById("card-title").innerHTML = getMessage("colors");
-    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+    document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + this.cardCount + ".png')";
     document.getElementById("card-answer").innerHTML = this.colorAnswer[this.cardCount];
     document.getElementById("card-answer").style.color = this.colorHex[this.cardCount];
     document.getElementById("card").innerHTML =	'';
@@ -434,7 +453,7 @@ FlashCards.prototype.flipCard = function () {
     this.cardCount = this.cardCount + 1;
     if (!this.isLastCard()) {
         this.cardFlipSound.play();
-        document.getElementById("card").style.backgroundImage = "url('images/" + this.cardSet + '_' + this.cardCount + ".png')";
+        this.setCardContent();
         document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
         if (this.cardSet === "FlashCardSet-Color") {
             document.getElementById("card-answer").style.color = this.deckAnswer[this.cardCount];
@@ -475,13 +494,13 @@ FlashCards.prototype.rightButtonClicked = function () {
  */
 FlashCards.prototype.replayButtonClicked = function () {
     "use strict";
-    if (this.cardSet === "FlashCardSet-Color") {
+    if (this.cardSet === "ColorDeck") {
         this.colorDeckClicked();
-    } else if (this.cardSet === "FlashCardSet-Shapes") {
+    } else if (this.cardSet === "ShapeDeck") {
         this.shapeDeckClicked();
-    } else if (this.cardSet === "FlashCardSet-Spanish") {
+    } else if (this.cardSet === "SpanishDeck") {
         this.spanishDeckClicked();
-    } else if (this.cardSet === "FlashCardSet-Counting") {
+    } else if (this.cardSet === "CountingDeck") {
         this.countingDeckClicked();
     }
     this.clear();

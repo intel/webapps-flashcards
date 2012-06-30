@@ -359,8 +359,7 @@ body{
 
 #card-answer{
 	position: absolute;
-	left: 200px;
-	top: 370px;
+	top: 270px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	width: 750px;
@@ -398,11 +397,8 @@ body{
 }
 
 #card{
-	position: absolute;
-	left: 195px;
-	top: 90px;
-	width: 771px;
-	height: 380px;
+	position: relative;
+	margin: 0px auto;
 	text-align: center;
 	font-family: "Carter One";
 	font-size: 230px;
@@ -411,6 +407,11 @@ body{
 }
 
 #current-card{
+	position: absolute;
+	left: 195px;
+	top: 90px;
+	width: 771px;
+	height: 380px;
     z-index: 3;
     cursor: pointer;
 }
