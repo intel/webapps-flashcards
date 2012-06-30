@@ -14,7 +14,6 @@ File structure comments:
 -	xmp tags missing on two image files
 
 Javascript comments:
--	function FlashCards() { }; instead of var Flashcards = function(){};
 -	Group CSS items in div and turn on/off instead of setting properties in JS
 -	line  67 remove opacity attribute use display instead
 -	group line 65 into "answer div"

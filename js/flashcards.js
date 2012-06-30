@@ -23,7 +23,7 @@ var getMessage,
 	* FlashCards() class contains all the variables and functions needed to run the flash card game 
 	*  @constructor
 	*/
-	var FlashCards = function () {
+	function FlashCards() {
 	    this.cardCount = 0; //current game wrong answers 
 	    this.rightCount = 0; //current game right answers 
 	    this.cardSet = "FlashCardSet-Color"; //name of card set and file prefix
