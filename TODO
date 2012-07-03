@@ -14,29 +14,10 @@ File structure comments:
 -	xmp tags missing on two image files
 
 Javascript comments:
--	Group CSS items in div and turn on/off instead of setting properties in JS
--	line  67 remove opacity attribute use display instead
--	group line 65 into "answer div"
 -	inject stars in the init function then hide and show them using CSS
 -	change count = count +1 to count += 1
--	Use gimp for color deck text hex colors, tenfour’s colors don’t match the cards
--	Pull scoreText getMessage into init() function with the others
 -	Pull audio tags out of html that do not loop
--	Change loop =”true” to loop=”loop”
--	Line 297 wrong comment (copy paste error)
 -	Fix card flip animation using webkitTransitionEnd
--	Line 510 should use the function toggleNavPane
--	Set event listeners based on screen and init in separate functions
--	Remove background div and add to image to css of ‘screen’
--	Line 27 spelling of ribbon alt tag
--	Height on the adventure and cards text and play now is too large
--	Use HTML5 doctype NOT Transitional 4.1 <!DOCTYPE HTML>
--	Include encoding: <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
--	Move audio tags at bottom of body not allowed in head
--	Use divs instead of image tags and include source in CSS
--	Checked for mixed spaces and tabs in index and css files
--	CSS should be at the top of index.html 
--	Use overflow: hidden for nav pane
 
 Please validate files before any commit:
 http://validator.w3.org/

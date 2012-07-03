@@ -1,86 +1,86 @@
 <!DOCTYPE HTML> 
 <!--
- * Copyright (c) 2012, Intel Corporation.
- *
- * This program is licensed under the terms and conditions of the
- * Apache License, version 2.0.  The full text of the Apache License is at
- * http://www.apache.org/licenses/LICENSE-2.0
- *
--->
+    * Copyright (c) 2012, Intel Corporation.
+    *
+    * This program is licensed under the terms and conditions of the
+    * Apache License, version 2.0.  The full text of the Apache License is at
+    * http://www.apache.org/licenses/LICENSE-2.0
+    *
+  -->
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-		<meta name="viewport" content="width=device-width target-densitydpi=device-dpi initial-scale=1 maximum-scale=1 user-scalable=0"/>
-		<title id="app-name"></title>
-		<link rel="stylesheet" href="css/flashcards.css"/>
-		<link rel="stylesheet" href="css/license.css"/>
-	</head>
-	<body>
-	<div id="licensepage" style="display: none">
-		<iframe id="licensetext" src="README.txt"></iframe>
-		<div id="licensebtnu" class="licensebtn">&uarr;</div>
-		<div id="licensebtnd" class="licensebtn">&darr;</div>
-		<div id="licensebtnq" class="licensebtn">Back</div>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width target-densitydpi=device-dpi initial-scale=1 maximum-scale=1 user-scalable=0"/>
+    <title id="app-name"></title>
+    <link rel="stylesheet" href="css/flashcards.css"/>
+    <link rel="stylesheet" href="css/license.css"/>
+  </head>
+  <body>
+    <div id="licensepage" style="display: none">
+      <iframe id="licensetext" src="README.txt"></iframe>
+      <div id="licensebtnu" class="licensebtn">&uarr;</div>
+      <div id="licensebtnd" class="licensebtn">&darr;</div>
+      <div id="licensebtnq" class="licensebtn">Back</div>
+    </div>
+    <div id="splash-screen">
+      <div id="adventure-ribbon-tail"></div>
+      <div id="adventure-ribbon"></div>
+      <div id="flash-title"></div>
+      <div id="cards-ribbon-tail"></div>
+      <div id="cards-ribbon"></div>
+      <div id="play-button"></div>
+      <div id="licensebtnl" style="top: 540px; left: 945px;"> i </div>
+    </div>
+    <div id="game-screen">
+      <div id="nav-pane-compass"></div>
+      <div id="rope-bottom"></div>
+      <div id="card-stack"></div>
+      <div id="card">
+	<div id="card-graphic"></div>
+      </div>
+      <div id="rope-top"></div>
+      <div id="answer">
+	<div id="card-answer"></div>
+	<div id="wrong-button"></div>
+	<div id="right-button"></div>
+      </div>
+      <div id="replay-button" ></div>
+      <div id="nav-pane" class="animation-open">
+	<div id="nav-flag"></div>
+	<div id="nav-pane-tent"></div>
+	<div id="scroll-overlay">
+	  <div id="scroll-items">
+	    <div id="shape-deck"></div>
+	    <div id="color-deck"></div>
+	    <div id="counting-deck"></div>
+	    <div id="spanish-deck"></div>
+	  </div>
 	</div>
-	<div id="splash-screen">
-		<div id="adventure-ribbon-tail"></div>
-		<div id="adventure-ribbon"></div>
-		<div id="flash-title"></div>
-		<div id="cards-ribbon-tail"></div>
-		<div id="cards-ribbon"></div>
-		<div id="play-button"></div>
-		<div id="licensebtnl" style="top: 540px; left: 945px;"> i </div>
+	<div id="score">
+	  <div id="score-text"></div>
+	  <div id="score-number"></div>
 	</div>
-	<div id="game-screen">
-		<div id="nav-pane-compass"></div>
-		<div id="rope-bottom"></div>
-		<div id="card-stack"></div>
-		<div id="card">
-			<div id="card-graphic"></div>
-		</div>
-		<div id="rope-top"></div>
-		<div id="answer">
-			<div id="card-answer"></div>
-			<div id="wrong-button"></div>
-			<div id="right-button"></div>
-		</div>
-		<div id="replay-button" ></div>
-		<div id="nav-pane" class="animation-open">
-			<div id="nav-flag"></div>
-			<div id="nav-pane-tent"></div>
-			<div id="scroll-overlay">
-				<div id="scroll-items">
-					<div id="shape-deck"></div>
-					<div id="color-deck"></div>
-					<div id="counting-deck"></div>
-					<div id="spanish-deck"></div>
-				</div>
-			</div>
-			<div id="score">
-				<div id="score-text"></div>
-				<div id="score-number"></div>
-			</div>
-		</div>
-		<div id="help-icon"></div>
-		<div id="help-dialog">
-			<div id="smoke-screen"></div>
-			<div id="help-card"></div>
-			<div id="help-text"></div>
-			<div id="help-close">X</div>
-		</div>
-	</div>
-	<script src="js/license.js"></script>
-	<script src="js/getMessage.js"></script>
-	<script src="js/sound.js"></script>
-	<script src="js/flashcards.js"></script>
-	<audio id="sound-intro" src="audio/Theme_Loop.ogg" preload="auto" loop="loop" ></audio>
-	<audio id="sound-buttonclick" src="audio/GeneralButtonClick_wav.ogg" preload="auto" ></audio>
-	<audio id="sound-cardflip" src="audio/CardFlip.ogg" preload="auto" ></audio>
-	<audio id="sound-background" src="audio/GameplayBackgroundAtmospheric_Loop.ogg" preload="auto" loop="loop"></audio>
-	<audio id="sound-navpane" src="audio/NavPaneSwoosh.ogg" preload="auto" ></audio>
-	<audio id="sound-end" src="audio/Replay.ogg" preload="auto"></audio>
-	<audio id="sound-starbutton" src="audio/StarButton.ogg" preload="auto"></audio>
-	<audio id="sound-thumbbutton" src="audio/ThumbsDown.ogg" preload="auto"></audio>
-	<audio id="sound-begin" src="audio/WhipCrackBegin.ogg" preload="auto"></audio>
-</body>
+      </div>
+      <div id="help-icon"></div>
+      <div id="help-dialog">
+	<div id="smoke-screen"></div>
+	<div id="help-card"></div>
+	<div id="help-text"></div>
+	<div id="help-close">X</div>
+      </div>
+    </div>
+    <script src="js/license.js"></script>
+    <script src="js/getMessage.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/flashcards.js"></script>
+    <audio id="sound-intro" src="audio/Theme_Loop.ogg" preload="auto" loop="loop" ></audio>
+    <audio id="sound-buttonclick" src="audio/GeneralButtonClick_wav.ogg" preload="auto" ></audio>
+    <audio id="sound-cardflip" src="audio/CardFlip.ogg" preload="auto" ></audio>
+    <audio id="sound-background" src="audio/GameplayBackgroundAtmospheric_Loop.ogg" preload="auto" loop="loop"></audio>
+    <audio id="sound-navpane" src="audio/NavPaneSwoosh.ogg" preload="auto" ></audio>
+    <audio id="sound-end" src="audio/Replay.ogg" preload="auto"></audio>
+    <audio id="sound-starbutton" src="audio/StarButton.ogg" preload="auto"></audio>
+    <audio id="sound-thumbbutton" src="audio/ThumbsDown.ogg" preload="auto"></audio>
+    <audio id="sound-begin" src="audio/WhipCrackBegin.ogg" preload="auto"></audio>
+  </body>
 </html>
