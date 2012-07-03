@@ -444,7 +444,7 @@ var getMessage,
 	    this.setCardContent();
 	    document.getElementById("card-answer").innerHTML = this.deckAnswer[this.cardCount];
 	    if (this.cardSet === this.cardDecks.COLORDECK) {
-		document.getElementById("card-answer").style.color = this.deckAnswer[this.cardCount];
+		document.getElementById("card-answer").style.color = this.colorHex[this.cardCount];
 	    }
 	    document.getElementById("card-flip").setAttribute("id", "card-graphic");
 	} else {
