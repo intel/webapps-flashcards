@@ -79,7 +79,7 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.clear = function () {
-	    var parent = document.getElementById("screen-nav"),
+	    var parent = document.getElementById("game-screen"),
 	    count,
 	    children;
 
@@ -329,22 +329,22 @@ var getMessage,
 	};
 
 	/** 
-	 * FlashCards.initNav() gets the localized strings for the game play screen, sets the default deck to Shapes
+	 * FlashCards.initGame() gets the localized strings for the game play screen, sets the default deck to Shapes
 	 * @private
 	 */
-	FlashCards.prototype.initNav = function () {
-	    this.backgroundSound.play();
-	    document.getElementById("score-text").innerHTML = getMessage("scoreText");
-	    document.getElementById("score-number").innerHTML = ": 0";
-	    document.getElementById("card-title").innerHTML = getMessage("shapes");
+	FlashCards.prototype.initGame = function () {
+		this.backgroundSound.play();
+		document.getElementById("score-text").innerHTML = getMessage("scoreText");
+		document.getElementById("score-number").innerHTML = ": 0";
+		document.getElementById("card-title").innerHTML = getMessage("shapes");
 
-	    this.getColorDeckAnswers();
-	    this.getColorDeckColors();
-	    this.getShapeDeckAnswers();
-	    this.getCountingDeckAnswers();
-	    this.getSpanishDeckAnswers();
+		this.getColorDeckAnswers();
+		this.getColorDeckColors();
+		this.getShapeDeckAnswers();
+		this.getCountingDeckAnswers();
+		this.getSpanishDeckAnswers();
 
-	    this.setShapeDeck();
+		this.setShapeDeck();
 	};
 
 	/**
@@ -352,9 +352,9 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.playNowClicked = function () {
-	    this.initNav();
-	    document.getElementById("screen").style.display = "none";
-	    document.getElementById("screen-nav").style.display = "inline";
+		this.initGame(); 
+		document.getElementById("splash-screen").style.display = "none";
+		document.getElementById("game-screen").style.display = "inline";
 	};
 
 	/**
@@ -384,7 +384,7 @@ var getMessage,
 		star.setAttribute('src', 'images/StarFilled.png');
 		star.setAttribute('id', ('star' + count));
 		star.setAttribute('class', ('star'));
-		container = document.getElementById("screen-nav");
+		container = document.getElementById("game-screen");
 		container.appendChild(star);
 	    }
 
@@ -394,7 +394,7 @@ var getMessage,
 		star.setAttribute('src', 'images/StarEmpty.png');
 		star.setAttribute('id', ('star' + count));
 		star.setAttribute('class', ('star'));
-		container = document.getElementById("screen-nav");
+		container = document.getElementById("game-screen");
 		container.appendChild(star);
 	    }
 	};
@@ -608,14 +608,14 @@ var getMessage,
 	* @private
 	*/
 	FlashCards.prototype.init = function () {
-	    license_init("license", "screen");
+	    license_init("license", "splash-screen");
 	    this.initSound();
 	    this.adventureThemeSound.play();
 	    document.getElementById("app-name").innerHTML = getMessage("appName");
 	    document.getElementById("adventure-text").innerHTML = getMessage("adventureText");
 	    document.getElementById("cards-text").innerHTML = getMessage("cardsText");
 	    document.getElementById("play-button-text").innerHTML = getMessage("playButtonText");
-	    document.getElementById("screen-nav").style.display = "none";
+	    document.getElementById("game-screen").style.display = "none";
 	    this.setEventListeners();
 	};
 

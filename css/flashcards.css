@@ -38,13 +38,13 @@ body{
     overflow: hidden;
 }
 
-#screen {
+#splash-screen {
     position: absolute;
     width: 1024px;
     height: 600px;
 }
 
-#screen-nav {
+#game-screen {
     position: absolute;
     width: 1024px;
     height: 600px;
