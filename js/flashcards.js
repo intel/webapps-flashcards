@@ -499,10 +499,7 @@ var getMessage,
 	* @private
 	*/
 	FlashCards.prototype.scrollNavPane = function (delta) {
-	    document.getElementById("shapes-deck").style.webkitTransform = "translateY("+delta+"px)";
-	    document.getElementById("color-deck").style.webkitTransform = "translateY("+delta+"px)";
-	    document.getElementById("counting-deck").style.webkitTransform = "translateY("+delta+"px)";
-	    document.getElementById("spanish-deck").style.webkitTransform = "translateY("+delta+"px)";
+		document.getElementById("scroll-items").style.webkitTransform = "translateY("+delta+"px)";
 	};
 
 	/**
@@ -519,20 +516,20 @@ var getMessage,
 	    document.getElementById("nav-pane").addEventListener('click', function () {
 		self.navPaneClicked();
 	    }, false);
-	    document.getElementById("clear-scroll").addEventListener('mousedown', function (e) {
+	    document.getElementById("scroll-overlay").addEventListener('mousedown', function (e) {
 		starty = e.clientY;
 		isDrag = 0; //mouse down
 	    }, false);
-	     document.getElementById("clear-scroll").addEventListener('mousemove', function (e) {
+	     document.getElementById("scroll-overlay").addEventListener('mousemove', function (e) {
 		isDrag = 1; //mouse move
 	    }, false);
-	     document.getElementById("clear-scroll").addEventListener('mouseup', function (e) {
+	     document.getElementById("scroll-overlay").addEventListener('mouseup', function (e) {
 		if(isDrag === 1) { //if equals 1 is drag event
 		    self.scrollNavPane((-1)*(starty-e.clientY));
 		}
 		isDrag = -1; //regardless reset endy 
 	    }, false);
-	    document.getElementById("shapes-deck").addEventListener('click', function () {
+	    document.getElementById("shape-deck").addEventListener('click', function () {
 		self.shapeDeckClicked();
 	    }, false);
 	    document.getElementById("color-deck").addEventListener('click', function () {
