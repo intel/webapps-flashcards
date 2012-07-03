@@ -8,25 +8,25 @@
  */
 
 @font-face {
-	font-family: 'Carter One';
-	src: url('../fonts/CarterOne.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Carter One';
+    src: url('../fonts/CarterOne.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: 'Gill Sans';
-	src: url('fonts/GillSansUltraBold') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Gill Sans';
+    src: url('fonts/GillSansUltraBold') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-html{
+html {
     width: 0px;
     height: 0px;
 }
 
-body{
+body {
     -webkit-user-select: none;
     box-shadow: 5px 5px 20px black;
     position: absolute;
@@ -45,7 +45,6 @@ body{
     width: 1024px;
     height: 600px;
     background-image: url('../images/Background.png');
-
 }
 
 #game-screen {
@@ -58,473 +57,470 @@ body{
 
 /* 800 x 480 */
 @media (orientation: landscape) {
-  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.78125, 0.8); }
+    body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.78125, 0.8); }
 }
+
 /* 1024 x 600 */
 @media (min-width: 1024px) and (min-height: 600px) and (orientation: landscape) {
-  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); }
+    body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); }
 }
+
 /* 1280 x 720 */
 @media (min-width: 1280px) and (min-height: 720px) and (orientation: landscape) {
-  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(1.25, 1.199); }
+    body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(1.25, 1.199); }
 }
 
 /* 480 x 800 */
 @media (orientation: portrait) {
-  body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(0.8, 0.78125); }
+    body { top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(0.8, 0.78125); }
 }
+
 /* 600 x 1024 */
 @media (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
-  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) translate(50%, -50%); }
+    body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) translate(50%, -50%); }
 }
+
 /* 720 x 1230 */
 @media (min-width: 720px) and (min-height: 1230px) and (orientation: portrait) {
-  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.2, 1.199) translate(50%, -50%); }
+    body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.2, 1.199) translate(50%, -50%); }
 }
+
 /* 720 x 1280 */
 @media (min-width: 720px) and (min-height: 1280px) and (orientation: portrait) {
-  body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.25, 1.199) translate(50%, -50%); }
+    body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.25, 1.199) translate(50%, -50%); }
 }
 
-#adventure-ribbon
-{
-	position: absolute;
-	left: 216px;
-	top: 35px;
-	width: 604px;
-	height: 82px;
-	background-image: url('../images/AdventureRibbon.png');
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 81px;
-	line-height: 82px;
-	color: #ffffff;
+#adventure-ribbon {
+    position: absolute;
+    left: 216px;
+    top: 35px;
+    width: 604px;
+    height: 82px;
+    background-image: url('../images/AdventureRibbon.png');
+    text-align: center;
+    font-family: "Carter One";
+    font-size: 81px;
+    line-height: 82px;
+    color: #ffffff;
 }
 
-#adventure-ribbon-tail
-{
-	position: absolute;
-	left: 167px;
-	height: 86px;
-	width: 705px;
-	top: 65px;
-	background-image: url("../images/AdventureRibbonTail.png");
+#adventure-ribbon-tail {
+    position: absolute;
+    left: 167px;
+    height: 86px;
+    width: 705px;
+    top: 65px;
+    background-image: url("../images/AdventureRibbonTail.png");
 }
 
-#flash-title
-{
-	position: absolute;
-	left: 237px;
-	top: 155px;
-	width: 551px;
-	height: 197px;
-	background-image: url("../images/FlashTitle.png");
+#flash-title {
+    position: absolute;
+    left: 237px;
+    top: 155px;
+    width: 551px;
+    height: 197px;
+    background-image: url("../images/FlashTitle.png");
 }
 
-#cards-ribbon
-{
-	position: absolute;
-	left: 319px;
-	top: 380px; 
-	width: 354px;
-	height: 82px;
-	background-image: url("../images/CardRibbon.png");
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 83px;
-	color: #ffffff;
-	line-height: 82px;
+#cards-ribbon {
+    position: absolute;
+    left: 319px;
+    top: 380px; 
+    width: 354px;
+    height: 82px;
+    background-image: url("../images/CardRibbon.png");
+    text-align: center;
+    font-family: "Carter One";
+    font-size: 83px;
+    color: #ffffff;
+    line-height: 82px;
 }
 
-#cards-ribbon-tail
-{
-	position: absolute;
-	left: 268px;
-	top: 410px;
-	width: 455px;
-	height: 86px;
-	background-image: url("../images/CardRibbonTail.png");
+#cards-ribbon-tail {
+    position: absolute;
+    left: 268px;
+    top: 410px;
+    width: 455px;
+    height: 86px;
+    background-image: url("../images/CardRibbonTail.png");
 }
 
-#play-button
-{
-	position: absolute;
-	left: 340px;
-	width: 307px;
-	height: 83px;
-	top: 500px;
-	background-color: #499aff;
-	border-radius: 10px;
-	cursor: pointer;
-	text-align: center;
-	line-height: 83px;
-	font-family: "Carter One";
-	font-size: 60px;
-	color: #ffffff;
+#play-button {
+    position: absolute;
+    left: 340px;
+    width: 307px;
+    height: 83px;
+    top: 500px;
+    background-color: #499aff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 83px;
+    font-family: "Carter One";
+    font-size: 60px;
+    color: #ffffff;
 }
 
-#play-button:active
-{
-	background-color: #314a74;
+#play-button:active {
+    background-color: #314a74;
 }
 
-#nav-pane.animation-open{
-	-webkit-transform: translate(172px,0);
-	position: absolute;
-	left: -180px;
-	height: 600px;
-	width: 205px;
-	cursor: pointer;
-	background-image: url("../images/NavPane.png");
-	-webkit-transition: all 1s ease-in;
+#nav-pane.animation-open {
+    -webkit-transform: translate(172px,0);
+    position: absolute;
+    left: -180px;
+    height: 600px;
+    width: 205px;
+    cursor: pointer;
+    background-image: url("../images/NavPane.png");
+    -webkit-transition: all 1s ease-in;
 }
 
-#nav-pane.animation-close{
-	-webkit-transform: translate(-180px,0);
-	position: absolute;
-	height: 600px;
-	width: 205px;
-	cursor: pointer;
-	background-image: url("../images/NavPane.png");
-	-webkit-transition: all 1s ease-in;
+#nav-pane.animation-close {
+    -webkit-transform: translate(-180px,0);
+    position: absolute;
+    height: 600px;
+    width: 205px;
+    cursor: pointer;
+    background-image: url("../images/NavPane.png");
+    -webkit-transition: all 1s ease-in;
 }
 
-#nav-pane-tent{
-	position: absolute;
-	left: 50px;
-	top: 10px;
-	width: 79px;
-	height: 62px;
-	background-image: url("../images/NavTent.png");
+#nav-pane-tent {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    width: 79px;
+    height: 62px;
+    background-image: url("../images/NavTent.png");
 }
 
-#scroll-overlay{
-	position: absolute;
-	height: 391px;
-	width: 157px;
-	left: 22px;
-	top: 90px;
-	overflow: hidden;
+#scroll-overlay {
+    position: absolute;
+    height: 391px;
+    width: 157px;
+    left: 22px;
+    top: 90px;
+    overflow: hidden;
 }
 
-#scroll-items{
-	position: absolute;
-	cursor: pointer;
-	height: 391px;
-	width: 157px;
-	border-radius: 10px 10px 10px 10px;
-	-webkit-transition: all 1s ease-in-out;
+#scroll-items {
+    position: absolute;
+    cursor: pointer;
+    height: 391px;
+    width: 157px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-transition: all 1s ease-in-out;
 }
 
-#nav-pane-compass{
-	position: absolute;
-	width: 133px;
-	height: 126px;
-	left: 891px;
-	background-image: url("../images/Compass.png");
+#nav-pane-compass {
+    position: absolute;
+    width: 133px;
+    height: 126px;
+    left: 891px;
+    background-image: url("../images/Compass.png");
 }
 
-#shape-deck{
-	position: absolute;
-	left: 7px;
-	top: 40px;
-	width: 150px;
-	height: 89px;
-	background-image: url('../images/NavCardShapes.png');
-	z-index: 4;
+#shape-deck {
+    position: absolute;
+    left: 7px;
+    top: 40px;
+    width: 150px;
+    height: 89px;
+    background-image: url('../images/NavCardShapes.png');
+    z-index: 4;
 }
 
-#spanish-deck{
-	position: absolute;
-	left: 8px;
-	top: 120px;
-	width: 149px;
-	height: 87px;
-	background-image: url('../images/NavCardSpanish.png');
-	z-index: 3;
+#spanish-deck {
+    position: absolute;
+    left: 8px;
+    top: 120px;
+    width: 149px;
+    height: 87px;
+    background-image: url('../images/NavCardSpanish.png');
+    z-index: 3;
 }
 
-#color-deck{
-	position: absolute;
-	left: 6px;
-	top: 180px;
-	width: 151px;
-	height: 93px;
-	background-image: url("../images/NavCardColors.png" );
-	z-index: 2;
+#color-deck {
+    position: absolute;
+    left: 6px;
+    top: 180px;
+    width: 151px;
+    height: 93px;
+    background-image: url("../images/NavCardColors.png" );
+    z-index: 2;
 }
 
-#counting-deck{
-	position: absolute;
-	left: 8px;
-	top: 260px;
-	width: 149px;
-	height: 84px;
-	background-image: url("../images/NavCardCounting.png");
-	z-index: 1;
+#counting-deck {
+    position: absolute;
+    left: 8px;
+    top: 260px;
+    width: 149px;
+    height: 84px;
+    background-image: url("../images/NavCardCounting.png");
+    z-index: 1;
 }
 
-#score{
-	position: absolute;
-	width: 170px;
-	height: 54px;
-	top: 505px;
-	font-family: "Carter One";
-	font-size: 35px;
-	color: #ffffff;
+#score {
+    position: absolute;
+    width: 170px;
+    height: 54px;
+    top: 505px;
+    font-family: "Carter One";
+    font-size: 35px;
+    color: #ffffff;
 }
 
-#score-text{
-	position: absolute;
-	left: 15px;
-	width: 157px;
+#score-text {
+    position: absolute;
+    left: 15px;
+    width: 157px;
 }
 
-#score-number{
-	position: absolute;
-	left: 120px;
-	width: 70px;
+#score-number {
+    position: absolute;
+    left: 120px;
+    width: 70px;
 }
 
-#nav-flag{
-	position: absolute;
-	left: 204px;
-	text-indent: 5px;
-	top: 10px;
-	background-image: url("../images/NavFlag.png");
-	text-align: left;
-	width: 226px;
-	height: 66 px;
-	line-height: 66px;
-	font-family: "Carter One";
-	font-size: 41px;
-	color: #ffffff;
+#nav-flag {
+    position: absolute;
+    left: 204px;
+    text-indent: 5px;
+    top: 10px;
+    background-image: url("../images/NavFlag.png");
+    text-align: left;
+    width: 226px;
+    height: 66 px;
+    line-height: 66px;
+    font-family: "Carter One";
+    font-size: 41px;
+    color: #ffffff;
 }
 
-#answer{
-	position: absolute;
-	left: 200px;
-	top: 370px;
-	width: 750px;
-	height: 230px;
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 65px;
-	cursor: pointer;
-}
-#card-answer{
-	position: absolute;
-	width: 750px;
-	height: 100px;
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 65px;
-	cursor: pointer;
+#answer {
+    position: absolute;
+    left: 200px;
+    top: 370px;
+    width: 750px;
+    height: 230px;
+    text-align: center;
+    font-family: "Carter One";
+    font-size: 65px;
+    cursor: pointer;
 }
 
-#rope-top{
-	position: absolute;
-	top: 211px;
-	left: 890px;
-	width: 134px;
-	height: 78px;
-	background-image: url("../images/RopeTop.png");
+#card-answer {
+    position: absolute;
+    width: 750px;
+    height: 100px;
+    text-align: center;
+    font-family: "Carter One";
+    font-size: 65px;
+    cursor: pointer;
 }
 
-#rope-bottom{
-	position: absolute;
-	top: 290px;
-	left: 890px;
-	width: 135px;
-	height: 34px;
-	background-image: url("../images/RopeBottom.png");
+#rope-top {
+    position: absolute;
+    top: 211px;
+    left: 890px;
+    width: 134px;
+    height: 78px;
+    background-image: url("../images/RopeTop.png");
 }
 
-#card-stack{
-	position: absolute;
-	left: 118px;
-	top: 60px;
-	width: 860px;
-	height: 509px;
-	background-image: url("../images/CardStack.png");
+#rope-bottom {
+    position: absolute;
+    top: 290px;
+    left: 890px;
+    width: 135px;
+    height: 34px;
+    background-image: url("../images/RopeBottom.png");
 }
 
-#card{
-	position: absolute;
-	top: 90px;
-	left: 195px;
-	width: 771px;
-	height: 380px;
-	cursor: pointer;
-	background-image: url("../images/BlankCard.png");
+#card-stack {
+    position: absolute;
+    left: 118px;
+    top: 60px;
+    width: 860px;
+    height: 509px;
+    background-image: url("../images/CardStack.png");
 }
 
-#card-graphic{
+#card {
+    position: absolute;
+    top: 90px;
+    left: 195px;
+    width: 771px;
+    height: 380px;
+    cursor: pointer;
+    background-image: url("../images/BlankCard.png");
+}
+
+#card-graphic {
     position: relative;
-	margin: 0px auto;
-	background-repeat: no-repeat;
+    margin: 0px auto;
+    background-repeat: no-repeat;
 }
 
-#flip-back{
-	-webkit-transform-origin: 80% 20%;
-	-webkit-transition: all 1s ease-in;
-	-webkit-transform: rotate(-180deg);
+#flip-back {
+    -webkit-transform-origin: 80% 20%;
+    -webkit-transition: all 1s ease-in;
+    -webkit-transform: rotate(-180deg);
 }
 
-#card-flip{
-	-webkit-transform-origin: 80% 20%;
-	-webkit-transition: all 1s ease-in;
-	-webkit-transform: rotate(180deg);
+#card-flip {
+    -webkit-transform-origin: 80% 20%;
+    -webkit-transition: all 1s ease-in;
+    -webkit-transform: rotate(180deg);
 }
 
-#wrong-button{
-	position: absolute;
-	top: 120px;
-	left: 100px;
-	width: 105px;
-	height: 105px;
-	background-image: url('../images/CrossButton.png');
-	cursor: pointer;
+#wrong-button {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 105px;
+    height: 105px;
+    background-image: url('../images/CrossButton.png');
+    cursor: pointer;
 }
 
-#wrong-button:active{
-	background-image: url('../images/CrossButtonActive.png');
+#wrong-button:active {
+    background-image: url('../images/CrossButtonActive.png');
 }
 
-#right-button{
-	position: absolute;
-	top: 120px;
-	left: 550px;
-	width: 105px;
-	height: 105px;
-	background-image: url('../images/CheckmarkButton.png');
-	cursor: pointer;
+#right-button {
+    position: absolute;
+    top: 120px;
+    left: 550px;
+    width: 105px;
+    height: 105px;
+    background-image: url('../images/CheckmarkButton.png');
+    cursor: pointer;
 }
 
-#right-button:active{
-	background-image: url('../images/CheckmarkButtonActive.png');
+#right-button:active {
+    background-image: url('../images/CheckmarkButtonActive.png');
 }
 
-#replay-button{
-	position: absolute;
-	top: 480px;
-	left: 500px;
-	width: 105px;
-	height: 105px;
-	background-image: url('../images/ReplayButton.png');
-	display: none;
-	cursor: pointer;
+#replay-button {
+    position: absolute;
+    top: 480px;
+    left: 500px;
+    width: 105px;
+    height: 105px;
+    background-image: url('../images/ReplayButton.png');
+    display: none;
+    cursor: pointer;
 }
 
-#replay-button:active{
-	background-image: url('../images/ReplayButtonActive.png');
+#replay-button:active {
+    background-image: url('../images/ReplayButtonActive.png');
 }
 
-.star
-{
-	position: absolute;
-	width: 70px;
-	height: 67px;
+.star {
+    position: absolute;
+    width: 70px;
+    height: 67px;
 }
 
-#star1{
-	top: 130px;
-	left: 220px;
-
+#star1 {
+    top: 130px;
+    left: 220px;
 }
 
-#star2{
-	top: 130px;
-	left: 340px;
+#star2 {
+    top: 130px;
+    left: 340px;
 }
 
-#star3{
-	top: 130px;
-	left: 460px;
+#star3 {
+    top: 130px;
+    left: 460px;
 }
 
-#star4{
-	top: 130px;
-	left: 580px;
+#star4 {
+    top: 130px;
+    left: 580px;
 }
 
-#star5{
-	top: 130px;
-	left: 700px;
+#star5 {
+    top: 130px;
+    left: 700px;
 }
 
-#star6{
-	top: 220px;
-	left: 220px;
+#star6 {
+    top: 220px;
+    left: 220px;
 }
 
-#star7{
-	top: 220px;
-	left: 340px;
+#star7 {
+    top: 220px;
+    left: 340px;
 }
 
-#star8{
-	top: 220px;
-	left: 460px;
+#star8 {
+    top: 220px;
+    left: 460px;
 }
 
-#star9{
-	top: 220px;
-	left: 580px;
+#star9 {
+    top: 220px;
+    left: 580px;
 }
 
-#star10{	
-	top: 220px;
-	left: 700px;
+#star10 {	
+    top: 220px;
+    left: 700px;
 }
 
-#star11{
-	top: 310px;
-	left: 220px;
+#star11 {
+    top: 310px;
+    left: 220px;
 }
 
-#star12{
-	top: 310px;
-	left: 340px;
+#star12 {
+    top: 310px;
+    left: 340px;
 }
 
-#star13{
-	top: 310px;
-	left: 460px;
+#star13 {
+    top: 310px;
+    left: 460px;
 }
 
-#star14{
-	top: 310px;
-	left: 580px;
+#star14 {
+    top: 310px;
+    left: 580px;
 }
 
-#help-icon{
-	position: absolute;
-	left: 950px;
-	top: 530px;
-	width: 44px;
-	height: 44px;
-	background-image: url('../images/HelpIcon.png');
-	cursor: pointer;
+#help-icon {
+    position: absolute;
+    left: 950px;
+    top: 530px;
+    width: 44px;
+    height: 44px;
+    background-image: url('../images/HelpIcon.png');
+    cursor: pointer;
 }
 
-#help-dialog{
-	position: absolute;
-	left: 195px;
-	top: 90px;
-	width: 771px;
-	height: 380px;
-	display: none;
+#help-dialog {
+    position: absolute;
+    left: 195px;
+    top: 90px;
+    width: 771px;
+    height: 380px;
+    display: none;
 }
 
-#help-card{
+#help-card {
     position: absolute;
     width: 771px;
     height: 380px;
     background-image: url("../images/BlankCard.png");
 }
 
-#help-text{
+#help-text {
     position: absolute;
     text-align: center;
     width: 650px;
@@ -537,7 +533,7 @@ body{
     height: 230px;
 }
 
-#help-close{
+#help-close {
     position: absolute;
     text-align: center;
     width: 40px;
@@ -550,7 +546,7 @@ body{
     cursor: pointer;
 }
 
-#smoke-screen{
+#smoke-screen {
     position: absolute;
     width: 1024px;
     height: 600px;
@@ -558,4 +554,4 @@ body{
     top: -90px;
     background-color: #000000;
     opacity: 0.5;
-}		
+}
