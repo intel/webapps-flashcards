@@ -318,9 +318,19 @@ body{
 	color: #ffffff;
 }
 
+#answer{
+	position: absolute;
+	left: 200px;
+	top: 370px;
+	width: 750px;
+	height: 230px;
+	text-align: center;
+	font-family: "Carter One";
+	font-size: 65px;
+	cursor: pointer;
+}
 #card-answer{
 	position: absolute;
-	top: 270px;
 	width: 750px;
 	height: 100px;
 	text-align: center;
@@ -357,19 +367,19 @@ body{
 }
 
 #card{
-	position: relative;
-	margin: 0px auto;
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 230px;
-}
-
-#current-card{
 	position: absolute;
-	left: 195px;
 	top: 90px;
+	left: 195px;
 	width: 771px;
 	height: 380px;
+	cursor: pointer;
+	background-image: url("../images/BlankCard.png");
+}
+
+#card-graphic{
+    position: relative;
+	margin: 0px auto;
+	background-repeat: no-repeat;
 }
 
 #flip-back{
@@ -386,8 +396,8 @@ body{
 
 #wrong-button{
 	position: absolute;
-	top: 480px;
-	left: 230px;
+	top: 120px;
+	left: 100px;
 	width: 105px;
 	height: 105px;
 	background-image: url('../images/CrossButton.png');
@@ -400,8 +410,8 @@ body{
 
 #right-button{
 	position: absolute;
-	top: 480px;
-	left: 800px;
+	top: 120px;
+	left: 550px;
 	width: 105px;
 	height: 105px;
 	background-image: url('../images/CheckmarkButton.png');
