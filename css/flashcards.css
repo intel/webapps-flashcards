@@ -520,31 +520,34 @@ body{
 	cursor: pointer;
 }
 
+#help-dialog{
+	position: absolute;
+	left: 195px;
+	top: 90px;
+	width: 771px;
+	height: 380px;
+	cursor: default;
+	display: none;
+}
+
 #help-card{
     position: absolute;
-    left: 195px;
-    top: 90px;
     width: 771px;
     height: 380px;
-    cursor: default;
-    -webkit-user-select:none;
-    display: none;
+    background-image: url("../images/BlankCard.png");
 }
 
 #help-text{
     position: absolute;
     text-align: center;
-    width: 620px;
+    width: 650px;
     line-height: 30px;
-    margin: 0px;
-    left: 215px;
-    top: 160px;
+    margin: 75px 20px;
     font-family: "Carter One";
     font-size: 20px;
     color:  #5C3317;
-    cursor: default;
-    -webkit-user-select:none;
-    display: none;
+    word-wrap: break-word;
+    height: 230px;
 }
 
 #help-close{
@@ -552,22 +555,20 @@ body{
     text-align: center;
     width: 40px;
     line-height: 41px;
-    margin: 0px;
-    left: 910px;
-    top: 105px;
+    left: 710px;
+    top: 15px;
     font-family: "Carter One";
     font-size: 41px;
     color:  #5C3317;
     cursor: pointer;
-    display: none;
 }
 
 #smoke-screen{
     position: absolute;
     width: 1024px;
     height: 600px;
+    left: -195px;
+    top: -90px;
     background-color: #000000;
     opacity: 0.5;
-    cursor: default;
-    display: none;
 }		

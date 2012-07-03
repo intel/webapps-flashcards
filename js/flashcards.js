@@ -43,11 +43,7 @@ var getMessage,
 	 */
 	FlashCards.prototype.helpClicked = function () {
 	    this.buttonClickSound.play();
-
-	    document.getElementById("help-close").style.display = "inline";
-	    document.getElementById("help-text").style.display = "inline";
-	    document.getElementById("smoke-screen").style.display = "inline";
-	    document.getElementById("help-card").style.display = "inline";
+    	document.getElementById("help-dialog").style.display = "inline";
 	};
 
 	/* 
@@ -56,10 +52,7 @@ var getMessage,
 	 */
 	FlashCards.prototype.helpCloseClicked = function () {
 	    this.buttonClickSound.play();
-	    document.getElementById("help-close").style.display = "none";
-	    document.getElementById("smoke-screen").style.display = "none";
-	    document.getElementById("help-card").style.display = "none";
-	    document.getElementById("help-text").style.display = "none";
+    	document.getElementById("help-dialog").style.display = "none";
 	};
 
 	 /** 
@@ -337,6 +330,7 @@ var getMessage,
 		document.getElementById("score-text").innerHTML = getMessage("scoreText");
 		document.getElementById("score-number").innerHTML = ": 0";
 		document.getElementById("card-title").innerHTML = getMessage("shapes");
+	    document.getElementById("help-text").innerHTML = getMessage("helpText");
 
 		this.getColorDeckAnswers();
 		this.getColorDeckColors();
