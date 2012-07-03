@@ -168,32 +168,34 @@ body{
 	background-color: #314a74;
 }
 
-#nav-pane-animation-open{
+#nav-pane.animation-open{
+	-webkit-transform: translate(172px,0);
 	position: absolute;
 	left: -180px;
-	-webkit-transition: all 1s ease-in;
-	-webkit-transform: translate(172px,0);
-}
-
-#nav-pane-animation-close{
-	position: absolute;
 	height: 600px;
-	width: 199px;
-	-webkit-transition: all 1s ease-in;
-	-webkit-transform: translate(-172px,0);
-}
-
-#nav-pane{
-	position: absolute;
-	height: 600px;
-	width: 199px;
+	width: 205px;
 	cursor: pointer;
+	background-image: url("../images/NavPane.png");
+	-webkit-transition: all 1s ease-in;
+}
+
+#nav-pane.animation-close{
+	-webkit-transform: translate(-180px,0);
+	position: absolute;
+	height: 600px;
+	width: 205px;
+	cursor: pointer;
+	background-image: url("../images/NavPane.png");
+	-webkit-transition: all 1s ease-in;
 }
 
 #nav-pane-tent{
 	position: absolute;
 	left: 50px;
 	top: 10px;
+	width: 79px;
+	height: 62px;
+	background-image: url("../images/NavTent.png");
 }
 
 #clear-scroll{
@@ -299,18 +301,14 @@ body{
 
 #nav-flag{
 	position: absolute;
-	left: 196px;
+	left: 204px;
+	text-indent: 5px;
 	top: 10px;
-}
-
-#card-title{
-	position: absolute;
-	text-align: center;
-	width: 200px;
-	line-height: 41px;
-	margin: 0px;
-	left: 200px;
-	top: 20px;
+	background-image: url("../images/NavFlag.png");
+	text-align: left;
+	width: 226px;
+	height: 66 px;
+	line-height: 66px;
 	font-family: "Carter One";
 	font-size: 41px;
 	color: #ffffff;
