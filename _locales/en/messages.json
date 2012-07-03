@@ -3,7 +3,7 @@
      "adventureText": {"message": "Adventure"},
      "cardsText": {"message": "Cards"},
      "playButtonText": {"message": "Play Now"},
-     "scoreText": {"message": "Score"},
+     "scoreText": {"message": "Score:"},
      "shapes": {"message": "Shapes"},
      "colors": {"message": "Colors"},
      "counting": {"message": "Counting"},

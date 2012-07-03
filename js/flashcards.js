@@ -83,7 +83,7 @@ var getMessage,
 		parent.removeChild(document.getElementsByClassName("star")[count]);
 	    }
 
-	    document.getElementById("score-number").innerHTML = ": 0";
+	    document.getElementById("score-number").innerHTML = "0";
 	    document.getElementById("replay-button").style.display = "none";
 	    this.hideAnswer();
 	};
@@ -318,7 +318,7 @@ var getMessage,
 	FlashCards.prototype.initGame = function () {
 		this.backgroundSound.play();
 		document.getElementById("score-text").innerHTML = getMessage("scoreText");
-		document.getElementById("score-number").innerHTML = ": 0";
+		document.getElementById("score-number").innerHTML = "0";
 		document.getElementById("card-title").innerHTML = getMessage("shapes");
 	    document.getElementById("help-text").innerHTML = getMessage("helpText");
 
@@ -450,7 +450,7 @@ var getMessage,
 	    this.buttonClickSound.play();
 	    this.rightCount = this.rightCount + 1;
 	    this.flipCard();
-	    document.getElementById("score-number").innerHTML = ": " + this.rightCount;
+	    document.getElementById("score-number").innerHTML = this.rightCount;
 	};
 
 	/**
