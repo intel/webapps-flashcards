@@ -21,13 +21,15 @@
 	font-style: normal;
 }
 
+html{
+    width: 0px;
+    height: 0px;
+}
+
 body{
     margin: 0px;
     -webkit-user-select: none;
     box-shadow: 5px 5px 20px black;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
     position: absolute;
     width: 1024px;
     height: 600px;
@@ -92,7 +94,6 @@ body{
 	top: 35px;
 	width: 604px;
 	height: 82px;
-	z-index: 2;
 }
 
 #adventure-text
@@ -104,7 +105,6 @@ body{
 	font-family: "Carter One";
 	font-size: 81px;
 	color: #ffffff;
-	z-index: 3;
 	cursor: default;
 }
 
@@ -112,16 +112,13 @@ body{
 {
 	position: absolute;
 	left: 167px;
-	-webkit-transform: transformX(-50%);
 	top: 65px;
-	z-index: 1;
 }
 
 #flash-title
 {
 	position: absolute;
 	left: 237px;
-	-webkit-transform: transformX(-50%); 
 	top: 155px;
 }
 
@@ -129,11 +126,9 @@ body{
 {
 	position: absolute;
 	left: 319px;
-	-webkit-transform: transformX(-50%);
 	top: 380px; 
 	width: 354px;
 	height: 82px;
-	z-index: 2;
 }
 
 #cards-text
@@ -145,7 +140,6 @@ body{
 	font-family: "Carter One";
 	font-size: 83px;
 	color: #ffffff;
-	z-index: 3;
 	cursor: default;
 }
 
@@ -154,15 +148,12 @@ body{
 	position: absolute;
 	left: 268px;
 	top: 410px;
-	-webkit-transform: transformX(-50%); 
-	z-index: 1;
 }
 
 #play-button
 {
 	position: absolute;
 	left: 340px;
-	-webkit-transform: transformX(-50%);
 	width: 307px;
 	height: 83px;
 	top: 500px;
@@ -194,7 +185,6 @@ body{
 	left: -180px;
 	-webkit-transition: all 1s ease-in;
 	-webkit-transform: translate(172px,0);
-	z-index: 4;
 }
 
 #nav-pane-animation-close{
@@ -203,14 +193,12 @@ body{
 	width: 199px;
 	-webkit-transition: all 1s ease-in;
 	-webkit-transform: translate(-172px,0);
-	z-index: 4;
 }
 
 #nav-pane{
 	position: absolute;
 	height: 600px;
 	width: 199px;
-	z-index: 4;
 	cursor: pointer;
 }
 
@@ -218,7 +206,6 @@ body{
 	position: absolute;
 	left: 50px;
 	top: 10px;
-	z-index: 5;
 }
 
 #clear-scroll{
@@ -230,7 +217,6 @@ body{
 	background-color: transparent;
 	color: #555753;
 	border-radius: 10px 10px 10px 10px;
-	z-index: 5;
 	overflow: hidden;
 }
 
@@ -243,7 +229,6 @@ body{
 	background-color: #333333;
 	color: #555753;
 	border-radius: 10px 10px 10px 10px;
-	z-index: 4;
 }
 
 #nav-pane-compass{
@@ -310,7 +295,6 @@ body{
 	font-family: "Carter One";
 	font-size: 35px;
 	color: #ffffff;
-	z-index: 4;
 	cursor: pointer;
 }
 
@@ -323,7 +307,6 @@ body{
 	font-family: "Carter One";
 	font-size: 35px;
 	color: #ffffff;
-	z-index: 4;
 	cursor: pointer;
 }
 
@@ -331,7 +314,6 @@ body{
 	position: absolute;
 	left: 196px;
 	top: 10px;
-	z-index: 3;
 	cursor: default;
 }
 
@@ -346,22 +328,16 @@ body{
 	font-family: "Carter One";
 	font-size: 41px;
 	color: #ffffff;
-	z-index: 3;
 }
 
 #card-answer{
 	position: absolute;
 	top: 270px;
-	margin-top: 0px;
-	margin-bottom: 0px;
 	width: 750px;
 	height: 100px;
 	text-align: center;
 	font-family: "Carter One";
 	font-size: 65px;
-	opacity: 0;
-	z-index: 3;
-	opacity: 0;
 	cursor: pointer;
 }
 
@@ -369,14 +345,12 @@ body{
 	position: absolute;
 	top: 211px;
 	left: 890px;
-	z-index: 4;
 }
 
 #rope-bottom{
 	position: absolute;
 	top: 290px;
 	left: 890px;
-	z-index: 1;
 }
 
 #card-stack{
@@ -385,7 +359,6 @@ body{
 	top: 60px;
 	width: 860px;
 	height: 509px;
-	z-index: 1;
 }
 
 #card{
@@ -394,8 +367,6 @@ body{
 	text-align: center;
 	font-family: "Carter One";
 	font-size: 230px;
-	z-index: 3;
-	cursor: pointer;
 }
 
 #current-card{
@@ -404,34 +375,27 @@ body{
 	top: 90px;
 	width: 771px;
 	height: 380px;
-    z-index: 3;
-    cursor: pointer;
 }
 
 #flip-back{
 	-webkit-transform-origin: 80% 20%;
 	-webkit-transition: all 1s ease-in;
 	-webkit-transform: rotate(-180deg);
-    z-index: 3;
 }
 
 #card-flip{
 	-webkit-transform-origin: 80% 20%;
 	-webkit-transition: all 1s ease-in;
 	-webkit-transform: rotate(180deg);
-	z-index: 3;
 }
 
 #wrong-button{
 	position: absolute;
 	top: 480px;
 	left: 230px;
-	opacity: 1;
 	width: 105px;
 	height: 105px;
 	background-image: url('../images/CrossButton.png');
-	z-index: 2;
-	display: none;
 	cursor: pointer;
 }
 
@@ -443,11 +407,8 @@ body{
 	position: absolute;
 	top: 480px;
 	left: 800px;
-	opacity: 1;
 	width: 105px;
 	height: 105px;
-	z-index: 3;
-	display: none;
 	background-image: url('../images/CheckmarkButton.png');
 	cursor: pointer;
 }
@@ -460,11 +421,9 @@ body{
 	position: absolute;
 	top: 480px;
 	left: 500px;
-	opacity: 1;
 	width: 105px;
 	height: 105px;
 	background-image: url('../images/ReplayButton.png');
-	z-index: 3;
 	display: none;
 	cursor: pointer;
 }
@@ -478,7 +437,6 @@ body{
 	position: absolute;
 	width: 70px;
 	height: 67px;
-	z-index: 3;
 }
 
 #star1{
@@ -559,7 +517,6 @@ body{
 	width: 44px;
 	height: 44px;
 	background-image: url('../images/HelpIcon.png');
-	z-index: 2;
 	cursor: pointer;
 }
 
@@ -569,11 +526,9 @@ body{
     top: 90px;
     width: 771px;
     height: 380px;
-    display: none;
-    border: 0px;
-    z-index: 8;
     cursor: default;
     -webkit-user-select:none;
+    display: none;
 }
 
 #help-text{
@@ -587,10 +542,9 @@ body{
     font-family: "Carter One";
     font-size: 20px;
     color:  #5C3317;
-    display: none;
     cursor: default;
-    z-index: 10;
     -webkit-user-select:none;
+    display: none;
 }
 
 #help-close{
@@ -606,7 +560,6 @@ body{
     color:  #5C3317;
     cursor: pointer;
     display: none;
-    z-index: 9;
 }
 
 #smoke-screen{
@@ -617,5 +570,4 @@ body{
     opacity: 0.5;
     cursor: default;
     display: none;
-    z-index: 7;
 }		
