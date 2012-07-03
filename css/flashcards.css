@@ -224,6 +224,7 @@ body{
 	width: 133px;
 	height: 126px;
 	left: 891px;
+	background-image: url("../images/Compass.png");
 }
 
 #shapes-deck{
@@ -332,12 +333,18 @@ body{
 	position: absolute;
 	top: 211px;
 	left: 890px;
+	width: 134px;
+	height: 78px;
+	background-image: url("../images/RopeTop.png");
 }
 
 #rope-bottom{
 	position: absolute;
 	top: 290px;
 	left: 890px;
+	width: 135px;
+	height: 34px;
+	background-image: url("../images/RopeBottom.png");
 }
 
 #card-stack{
@@ -346,6 +353,7 @@ body{
 	top: 60px;
 	width: 860px;
 	height: 509px;
+	background-image: url("../images/CardStack.png");
 }
 
 #card{
