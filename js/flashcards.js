@@ -89,6 +89,17 @@ var getMessage,
 	};
 
 	/**
+	 *  FlashCards.navPaneClose()  closes nav pane and plays nav pane sound effect
+	 * @private
+	 */
+	FlashCards.prototype.navPaneClose = function () {
+		this.swooshSound.play();
+		if (document.getElementsByClassName("animation-open")[0]) {
+		    document.getElementsByClassName("animation-open")[0].setAttribute("class", "animation-close");
+		} 
+	};
+	 
+	/**
 	 *  FlashCards.navPaneToggle() opens or closes nav pane and plays nav pane sound effect
 	 * @private
 	 */
@@ -398,10 +409,9 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.endGame = function () {
-	    this.trumpetFanfareSound.play();
-	    this.endGameFlag = true;
-
-	    this.navPaneToggle();
+		this.trumpetFanfareSound.play();
+		this.endGameFlag = true;
+		this.navPaneClose();
 		document.getElementById("card").style.display = "none";
 	    document.getElementById("card-flip").setAttribute("id", "card-graphic");
 
@@ -493,15 +503,11 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.cardClicked = function () {
-	    this.buttonClickSound.play();
-		if (document.getElementsByClassName("animation-open")[0]) {
-		    document.getElementsByClassName("animation-open")[0].setAttribute("class", "animation-close");
-		} 
-		this.swooshSound.play();
-
-	    if (!this.endGameFlag) {
-		this.showAnswer();
-	    }
+		this.buttonClickSound.play();
+		this.navPaneClose();
+		if (!this.endGameFlag) {
+		    this.showAnswer();
+		}
 	};
 
 	/**
