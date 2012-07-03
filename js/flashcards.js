@@ -338,10 +338,11 @@ var getMessage,
 	 */
 	FlashCards.prototype.initGame = function () {
 		this.backgroundSound.play();
+
 		document.getElementById("score-text").innerHTML = getMessage("scoreText");
-		document.getElementById("score-number").innerHTML = "0";
-		document.getElementById("nav-flag").innerHTML = getMessage("shapes");
 	    document.getElementById("help-text").innerHTML = getMessage("helpText");
+
+        this.setGameEventListeners();
 
 		this.getColorDeckAnswers();
 		this.getColorDeckColors();
@@ -519,65 +520,74 @@ var getMessage,
 	};
 
 	/**
-	 * FlashCards.setEventListeners sets event handlers for the game
+	 * FlashCards.setGameEventListeners sets event handlers for the game
 	 * @private
 	 */
-	FlashCards.prototype.setEventListeners = function () {
-	    var self = this,
+	FlashCards.prototype.setGameEventListeners = function () {
+		var self = this,
 		starty = 0, //starting y coordinate of drag
 		isDrag = -1; //flag for qualifying drag event
-	    document.getElementById("play-button").addEventListener('click', function () {
-		self.playNowClicked();
-	    }, false);
-	    document.getElementById("nav-pane").addEventListener('click', function () {
-		self.navPaneClicked();
-	    }, false);
-	    document.getElementById("scroll-overlay").addEventListener('mousedown', function (e) {
-		starty = e.clientY;
-		isDrag = 0; //mouse down
-	    }, false);
-	     document.getElementById("scroll-overlay").addEventListener('mousemove', function (e) {
-		isDrag = 1; //mouse move
-	    }, false);
-	     document.getElementById("scroll-overlay").addEventListener('mouseup', function (e) {
-		if(isDrag === 1) { //if equals 1 is drag event
-		    self.scrollNavPane((-1)*(starty-e.clientY));
-		}
-		isDrag = -1; //regardless reset endy 
-	    }, false);
-	    document.getElementById("shape-deck").addEventListener('click', function () {
-		self.shapeDeckClicked();
-	    }, false);
-	    document.getElementById("color-deck").addEventListener('click', function () {
-		self.colorDeckClicked();
-	    }, false);
-	    document.getElementById("counting-deck").addEventListener('click', function () {
-		self.countingDeckClicked();
-	    }, false);
-	    document.getElementById("spanish-deck").addEventListener('click', function () {
-		self.spanishDeckClicked();
-	    }, false);
-	    document.getElementById("card").addEventListener('click', function () {
-		self.cardClicked();
-	    }, false);
-	    document.getElementById("card-answer").addEventListener('click', function () {
-		self.cardClicked();
-	    }, false);
-	    document.getElementById("wrong-button").addEventListener('click', function () {
-		self.wrongButtonClicked();
-	    }, false);
-	    document.getElementById("right-button").addEventListener('click', function () {
-		self.rightButtonClicked();
-	    }, false);
-	    document.getElementById("replay-button").addEventListener('click', function () {
-		self.replayButtonClicked();
-	    }, false);
-	    document.getElementById("help-icon").addEventListener('click', function () {
-		self.helpClicked();
-	    }, false);
-	    document.getElementById("help-close").addEventListener('click', function () {
-		self.helpCloseClicked();
-	    }, false);
+		
+		document.getElementById("nav-pane").addEventListener('click', function () {
+		    self.navPaneClicked();
+		}, false);
+		document.getElementById("scroll-overlay").addEventListener('mousedown', function (e) {
+		    starty = e.clientY;
+		    isDrag = 0; //mouse down
+		}, false);
+		document.getElementById("scroll-overlay").addEventListener('mousemove', function (e) {
+		    isDrag = 1; //mouse move
+		}, false);
+		document.getElementById("scroll-overlay").addEventListener('mouseup', function (e) {
+		    if(isDrag === 1) { //if equals 1 is drag event
+		        self.scrollNavPane((-1)*(starty-e.clientY));
+		    }
+		    isDrag = -1; //regardless reset endy 
+		}, false);
+		document.getElementById("shape-deck").addEventListener('click', function () {
+		    self.shapeDeckClicked();
+		}, false);
+		document.getElementById("color-deck").addEventListener('click', function () {
+		    self.colorDeckClicked();
+		}, false);
+		document.getElementById("counting-deck").addEventListener('click', function () {
+		    self.countingDeckClicked();
+		}, false);
+		document.getElementById("spanish-deck").addEventListener('click', function () {
+		    self.spanishDeckClicked();
+		}, false);
+		document.getElementById("card").addEventListener('click', function () {
+		    self.cardClicked();
+		}, false);
+		document.getElementById("card-answer").addEventListener('click', function () {
+		    self.cardClicked();
+		}, false);
+		document.getElementById("wrong-button").addEventListener('click', function () {
+		    self.wrongButtonClicked();
+		}, false);
+		document.getElementById("right-button").addEventListener('click', function () {
+		    self.rightButtonClicked();
+		}, false);
+		document.getElementById("replay-button").addEventListener('click', function () {
+		    self.replayButtonClicked();
+		}, false);
+		document.getElementById("help-icon").addEventListener('click', function () {
+		    self.helpClicked();
+		}, false);
+		document.getElementById("help-close").addEventListener('click', function () {
+		    self.helpCloseClicked();
+		}, false);
+	};
+
+	/**
+	 * FlashCards.setSplashScreenEventListeners sets event handlers for the splash screen 
+	 * @private
+	 */
+	FlashCards.prototype.setSplashScreenEventListeners = function () {
+		var self = this;
+		document.getElementById("play-button").addEventListener('click', function () {
+		    self.playNowClicked();
+		}, false);
 	};
 
 	/**
@@ -601,14 +611,14 @@ var getMessage,
 	* @private
 	*/
 	FlashCards.prototype.init = function () {
-	    license_init("license", "splash-screen");
-	    this.initSound();
-	    this.adventureThemeSound.play();
-	    document.getElementById("app-name").innerHTML = getMessage("appName");
-	    document.getElementById("adventure-ribbon").innerHTML = getMessage("adventureText");
-	    document.getElementById("cards-ribbon").innerHTML = getMessage("cardsText");
-	    document.getElementById("play-button").innerHTML = getMessage("playButtonText");
-	    this.setEventListeners();
+		license_init("license", "splash-screen");
+		this.initSound();
+		this.adventureThemeSound.play();
+		document.getElementById("app-name").innerHTML = getMessage("appName");
+		document.getElementById("adventure-ribbon").innerHTML = getMessage("adventureText");
+		document.getElementById("cards-ribbon").innerHTML = getMessage("cardsText");
+		document.getElementById("play-button").innerHTML = getMessage("playButtonText");
+		this.setSplashScreenEventListeners();
 	};
 
 	window.addEventListener('load', function () {
