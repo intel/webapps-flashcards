@@ -16,6 +16,11 @@
      "green": {"message": "green"},
      "orange": {"message": "orange"},
      "yellow": {"message": "yellow"}, 
+     "grey": {"message": "grey"}, 
+     "white": {"message": "white"}, 
+     "pink": {"message": "pink"}, 
+     "black": {"message": "black"}, 
+     "brown": {"message": "brown"}, 
      "circle": {"message": "circle"},
      "square": {"message": "square"},
      "triangle": {"message": "triangle"},
@@ -47,5 +52,6 @@
      "book": {"message": "el libro"},
      "socks": {"message": "los calcet&#237;nes"},
      "cup": {"message": "la copa"},
-     "chair": {"message": "la silla"}
+     "chair": {"message": "la silla"},
+     "helpText": {"message": "Choose a set of flash cards by clicking one of the options (shapes, Spanish, colors, or numbers) on the left side. Your first card appears. Think of the answer, then click on the card. The answer appears. If you got it right, click the checkmark. If you got it wrong, click the X. Continue until your score is displayed. Cards you got right show as yellow stars, incorrect answers are empty stars. Click on a set of flash cards on the left to choose a new set or the same set to try again!"}
 }
