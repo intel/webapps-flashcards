@@ -263,13 +263,18 @@ var getMessage,
 	 *  @private
 	 */
 	FlashCards.prototype.getColorDeckAnswers = function () {
-	    this.colorAnswer = [];
-	    this.colorAnswer[0] = getMessage("red");
-	    this.colorAnswer[1] = getMessage("purple");
-	    this.colorAnswer[2] = getMessage("blue");
-	    this.colorAnswer[3] = getMessage("green");
-	    this.colorAnswer[4] = getMessage("orange");
-	    this.colorAnswer[5] = getMessage("yellow");
+		this.colorAnswer = [];
+		this.colorAnswer[0] = getMessage("red");
+		this.colorAnswer[1] = getMessage("purple");
+		this.colorAnswer[2] = getMessage("blue");
+		this.colorAnswer[3] = getMessage("green");
+		this.colorAnswer[4] = getMessage("orange");
+		this.colorAnswer[5] = getMessage("yellow");
+		this.colorAnswer[6] = getMessage("black");
+		this.colorAnswer[7] = getMessage("pink");
+		this.colorAnswer[8] = getMessage("white");
+		this.colorAnswer[9] = getMessage("brown");
+		this.colorAnswer[10] = getMessage("grey");
 	};
 
 	/**
@@ -277,13 +282,18 @@ var getMessage,
 	 * @private
 	 */
 	FlashCards.prototype.getColorDeckColors = function () {
-	    this.colorHex = [];
-	    this.colorHex[0] = "#dd0000";
-	    this.colorHex[1] = "#7e0b80";
-	    this.colorHex[2] = "#0000ff";
-	    this.colorHex[3] = "#33cc33";
-	    this.colorHex[4] = "#cc9933";
-	    this.colorHex[5] = "#fef600";
+		this.colorHex = [];
+		this.colorHex[0] = "#DD0000"; //red
+		this.colorHex[1] = "#7E0B80"; //purple
+		this.colorHex[2] = "#0000ff"; //blue
+		this.colorHex[3] = "#00BC00"; //green 
+		this.colorHex[4] = "#DA8D00"; //orange 
+		this.colorHex[5] = "#FEF600"; //yellow 
+		this.colorHex[6] = "#000000"; //black
+		this.colorHex[7] = "#FF00FF"; //pink
+		this.colorHex[8] = "#FFFFFF"; //white
+		this.colorHex[9] = "#996600"; //brown
+		this.colorHex[10] = "#C0C0C0"; //grey 
 	};
 
 	/** 
