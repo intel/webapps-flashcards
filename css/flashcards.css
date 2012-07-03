@@ -42,6 +42,8 @@ body{
     position: absolute;
     width: 1024px;
     height: 600px;
+    background-image: url('../images/Background.png');
+    overflow: hidden;
 }
 
 #game-screen {
@@ -49,6 +51,8 @@ body{
     width: 1024px;
     height: 600px;
     display: none;
+    background-image: url("../images/Background.png");
+    overflow: hidden;
 }
 
 /* 800 x 480 */
@@ -79,18 +83,6 @@ body{
 /* 720 x 1280 */
 @media (min-width: 720px) and (min-height: 1280px) and (orientation: portrait) {
   body { top: 0%; left: 0%; -webkit-transform: translate(-50%, -50%) rotate(90deg) scale(1.25, 1.199) translate(50%, -50%); }
-}
-
-#background {
-	position: absolute;
-	width: 1024px;
-	height: 600px;
-}
-
-#background-nav {
-	position: absolute;
-	width: 1024px;
-	height: 600px;
 }
 
 #adventure-ribbon
