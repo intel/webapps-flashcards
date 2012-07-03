@@ -606,10 +606,9 @@ var getMessage,
 	    this.initSound();
 	    this.adventureThemeSound.play();
 	    document.getElementById("app-name").innerHTML = getMessage("appName");
-	    document.getElementById("adventure-text").innerHTML = getMessage("adventureText");
-	    document.getElementById("cards-text").innerHTML = getMessage("cardsText");
-	    document.getElementById("play-button-text").innerHTML = getMessage("playButtonText");
-	    document.getElementById("game-screen").style.display = "none";
+	    document.getElementById("adventure-ribbon").innerHTML = getMessage("adventureText");
+	    document.getElementById("cards-ribbon").innerHTML = getMessage("cardsText");
+	    document.getElementById("play-button").innerHTML = getMessage("playButtonText");
 	    this.setEventListeners();
 	};
 

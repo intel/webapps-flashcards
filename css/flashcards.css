@@ -27,7 +27,6 @@ html{
 }
 
 body{
-    margin: 0px;
     -webkit-user-select: none;
     box-shadow: 5px 5px 20px black;
     position: absolute;
@@ -38,6 +37,7 @@ body{
     display: -webkit-box;
     background: #000000;
     overflow: hidden;
+    cursor: default;
 }
 
 #splash-screen {
@@ -45,7 +45,7 @@ body{
     width: 1024px;
     height: 600px;
     background-image: url('../images/Background.png');
-    overflow: hidden;
+
 }
 
 #game-screen {
@@ -54,7 +54,6 @@ body{
     height: 600px;
     display: none;
     background-image: url("../images/Background.png");
-    overflow: hidden;
 }
 
 /* 800 x 480 */
@@ -94,25 +93,22 @@ body{
 	top: 35px;
 	width: 604px;
 	height: 82px;
-}
-
-#adventure-text
-{
-	position: absolute;
+	background-image: url('../images/AdventureRibbon.png');
 	text-align: center;
-	left: 308px;
-	top: 15px;
 	font-family: "Carter One";
 	font-size: 81px;
+	line-height: 82px;
 	color: #ffffff;
-	cursor: default;
 }
 
 #adventure-ribbon-tail
 {
 	position: absolute;
 	left: 167px;
+	height: 86px;
+	width: 705px;
 	top: 65px;
+	background-image: url("../images/AdventureRibbonTail.png");
 }
 
 #flash-title
@@ -120,6 +116,9 @@ body{
 	position: absolute;
 	left: 237px;
 	top: 155px;
+	width: 551px;
+	height: 197px;
+	background-image: url("../images/FlashTitle.png");
 }
 
 #cards-ribbon
@@ -129,18 +128,12 @@ body{
 	top: 380px; 
 	width: 354px;
 	height: 82px;
-}
-
-#cards-text
-{
-	position: absolute;
-	left: 381px;
+	background-image: url("../images/CardRibbon.png");
 	text-align: center;
-	top: 360px;
 	font-family: "Carter One";
 	font-size: 83px;
 	color: #ffffff;
-	cursor: default;
+	line-height: 82px;
 }
 
 #cards-ribbon-tail
@@ -148,6 +141,9 @@ body{
 	position: absolute;
 	left: 268px;
 	top: 410px;
+	width: 455px;
+	height: 86px;
+	background-image: url("../images/CardRibbonTail.png");
 }
 
 #play-button
@@ -160,24 +156,16 @@ body{
 	background-color: #499aff;
 	border-radius: 10px;
 	cursor: pointer;
+	text-align: center;
+	line-height: 83px;
+	font-family: "Carter One";
+	font-size: 60px;
+	color: #ffffff;
 }
 
 #play-button:active
 {
 	background-color: #314a74;
-}
-
-#play-button-text
-{
-	position: absolute;
-	text-align: center;
-	font-family: "Carter One";
-	font-size: 60px;
-	width: 307px;
-	height: 83px;
-	top: -5px;
-	color: #ffffff;
-	cursor: pointer;
 }
 
 #nav-pane-animation-open{
@@ -314,7 +302,6 @@ body{
 	position: absolute;
 	left: 196px;
 	top: 10px;
-	cursor: default;
 }
 
 #card-title{
@@ -526,7 +513,6 @@ body{
 	top: 90px;
 	width: 771px;
 	height: 380px;
-	cursor: default;
 	display: none;
 }
 
