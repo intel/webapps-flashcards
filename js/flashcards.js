@@ -427,7 +427,6 @@ var getMessage,
 
 	//set card answer color and display replay button
 	document.getElementById("card-answer").style.color = "#499aff";
-	document.getElementById("card-answer").style.opacity = "1";
 	document.getElementById("replay-button").style.display = "inline";
     };
 
