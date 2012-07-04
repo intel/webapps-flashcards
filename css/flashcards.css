@@ -320,6 +320,21 @@ body {
     cursor: pointer;
 }
 
+#endgame-prompt {
+    position: absolute;
+    width: 750px;
+    height: 100px;
+    left: 200px;
+    top: 370px;
+    width: 750px;
+    height: 230px;
+    text-align: center;
+    font-family: "Carter One";
+    font-size: 65px;
+    color: #499aff;
+    cursor: pointer;
+}
+
 #rope-top {
     position: absolute;
     top: 211px;

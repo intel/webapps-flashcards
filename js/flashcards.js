@@ -85,6 +85,7 @@ var getMessage,
 
 	document.getElementById("score-number").innerHTML = "0";
 	document.getElementById("replay-button").style.display = "none";
+	document.getElementById("endgame-prompt").style.display = "none";
 	this.hideAnswer();
     };
 
@@ -420,13 +421,13 @@ var getMessage,
 
 	//if user got more right than wrong then show localized strings for "good job" else show localized strings for "try again" 
 	if (((this.deckAnswer.length) - this.rightCount) < this.rightCount) {
-	    document.getElementById("card-answer").innerHTML = getMessage("goodJob");
+	    document.getElementById("endgame-prompt").innerHTML = getMessage("goodJob");
 	} else {
-	    document.getElementById("card-answer").innerHTML = getMessage("tryAgain");
+	    document.getElementById("endgame-prompt").innerHTML = getMessage("tryAgain");
 	}
 
 	//set card answer color and display replay button
-	document.getElementById("card-answer").style.color = "#499aff";
+	document.getElementById("endgame-prompt").style.display = "inline";
 	document.getElementById("replay-button").style.display = "inline";
     };
 
