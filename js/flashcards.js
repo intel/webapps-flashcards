@@ -144,7 +144,7 @@ var getMessage,
      */
     FlashCards.prototype.setCardContent = function () {
 	var img = new Image();
-	img.src = '../images/' + this.cardSet + this.cardCount + '.png';
+	img.src = 'images/' + this.cardSet + this.cardCount + '.png';
 	document.getElementById("card").style.display = "none";
 	img.onload = function(){
 	    document.getElementById("card-graphic").style.width = img.width+"px";
