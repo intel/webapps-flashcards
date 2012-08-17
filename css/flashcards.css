@@ -437,6 +437,7 @@ body {
     position: absolute;
     width: 70px;
     height: 67px;
+    z-index: 2;
 }
 
 #star1 {
@@ -526,6 +527,7 @@ body {
     width: 771px;
     height: 380px;
     display: none;
+    z-index: 3;
 }
 
 #help-card {
