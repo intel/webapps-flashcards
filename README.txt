@@ -6,19 +6,15 @@ Author/Owner: Connie Berardi <connie.berardi@intel.com>
 Technical Details: This app is written using HTML5/css3
 javascript library and is distributed under Apache2.0 license. 
 
-CONTENTS
-1) FONTS
-2) SOUNDS
-3) IMAGES
+FONTS
+------------------------------------------------------------------
 
-License for the app is found in the file "LICENSE"
-
-1) FONTS
 Google web fonts - Carter One 
 http://www.google.com/webfonts/specimen/Carter+One
 SIL Open Font License 1.1
 
-2) SOUNDS
+SOUNDS
+------------------------------------------------------------------
 
 GameplayBackgroundAtmospheric_Loop.ogg  
 Original Name: bird-chatter4.aif
@@ -43,10 +39,9 @@ Original Name: Whip Crack 01.wav
 Origin: http://www.freesound.org/people/CGEffex/sounds/93100/
 License: License: http://creativecommons.org/licenses/by/3.0/
 
-3) IMAGES
+IMAGES
+------------------------------------------------------------------
 
-all images are created by Intel Corp.
-they are licensed under the Creative Commons Attribution 3.0 license
+All images are created by Intel Corp.
+They are licensed under the Creative Commons Attribution 3.0 license
 http://creativecommons.org/licenses/by/3.0/us/
-
-
