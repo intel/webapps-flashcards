@@ -338,6 +338,7 @@ var getMessage,
      * @private
      */
     FlashCards.prototype.initGame = function () {
+	this.initSound();
 	this.backgroundSound.play();
 
 	document.getElementById("score-text").innerHTML = getMessage("scoreText");
@@ -595,15 +596,14 @@ var getMessage,
      * @private
      */
     FlashCards.prototype.initSound = function () {
-	this.buttonClickSound = new GameSound("sound-buttonclick");
-	this.adventureThemeSound = new GameSound("sound-intro", true);
-	this.cardFlipSound = new GameSound("sound-cardflip");
-	this.backgroundSound = new GameSound("sound-background", true);
-	this.swooshSound = new GameSound("sound-navpane");
-	this.trumpetFanfareSound = new GameSound("sound-end");
-	this.rightAnswerSound = new GameSound("sound-starbutton");
-	this.wrongAnswerSound = new GameSound("sound-thumbbutton");
-	this.whipCrackSound = new GameSound("sound-begin");
+	this.buttonClickSound = new GameSound("sound-buttonclick", "audio/GeneralButtonClick_wav.ogg", "none");
+	this.cardFlipSound = new GameSound("sound-cardflip", "audio/CardFlip.ogg", "none");
+	this.backgroundSound = new GameSound("sound-background", "audio/GameplayBackgroundAtmospheric_Loop.ogg", "none", true);
+	this.swooshSound = new GameSound("sound-navpane", "audio/NavPaneSwoosh.ogg", "none");
+	this.trumpetFanfareSound = new GameSound("sound-end", "audio/Replay.ogg", "none");
+	this.rightAnswerSound = new GameSound("sound-starbutton", "audio/StarButton.ogg", "none");
+	this.wrongAnswerSound = new GameSound("sound-thumbbutton", "audio/ThumbsDown.ogg", "none");
+	this.whipCrackSound = new GameSound("sound-begin", "audio/WhipCrackBegin.ogg", "none");
     };
 
     /**
@@ -611,14 +611,14 @@ var getMessage,
      * @private
      */
     FlashCards.prototype.init = function () {
-	license_init("license", "splash-screen");
-	this.initSound();
-	this.adventureThemeSound.play();
 	document.getElementById("app-name").innerHTML = getMessage("appName");
 	document.getElementById("adventure-ribbon").innerHTML = getMessage("adventureText");
 	document.getElementById("cards-ribbon").innerHTML = getMessage("cardsText");
 	document.getElementById("play-button").innerHTML = getMessage("playButtonText");
+	this.adventureThemeSound = new GameSound("sound-intro", "audio/Theme_Loop.ogg", "auto", true);
+	this.adventureThemeSound.play();
 	this.setSplashScreenEventListeners();
+	license_init("license", "splash-screen");
     };
 
     window.addEventListener('load', function () {

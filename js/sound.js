@@ -7,7 +7,13 @@
  *
  */
 
-function GameSound(id, loop) {
+function GameSound(id, src, preload, loop) {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute("id", id);
+    audioElement.setAttribute("src", src);
+    audioElement.setAttribute("preload", preload);
+    document.body.appendChild(audioElement);
+
     var me = this;
     this.id = id;
     this.soundobj = document.getElementById(id);
