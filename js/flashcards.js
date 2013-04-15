@@ -586,7 +586,9 @@ var getMessage,
      */
     FlashCards.prototype.setSplashScreenEventListeners = function () {
 	var self = this;
+	this.buttonClickSound = new GameSound("sound-buttonclick", "audio/GeneralButtonClick_wav.ogg", "none");
 	document.getElementById("play-button").addEventListener('click', function () {
+	    self.buttonClickSound.play();
 	    self.playNowClicked();
 	}, false);
     };
@@ -596,7 +598,6 @@ var getMessage,
      * @private
      */
     FlashCards.prototype.initSound = function () {
-	this.buttonClickSound = new GameSound("sound-buttonclick", "audio/GeneralButtonClick_wav.ogg", "none");
 	this.cardFlipSound = new GameSound("sound-cardflip", "audio/CardFlip.ogg", "none");
 	this.backgroundSound = new GameSound("sound-background", "audio/GameplayBackgroundAtmospheric_Loop.ogg", "none", true);
 	this.swooshSound = new GameSound("sound-navpane", "audio/NavPaneSwoosh.ogg", "none");

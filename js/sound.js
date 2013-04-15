@@ -12,6 +12,8 @@ function GameSound(id, src, preload, loop) {
     audioElement.setAttribute("id", id);
     audioElement.setAttribute("src", src);
     audioElement.setAttribute("preload", preload);
+    if (loop)
+        audioElement.setAttribute("loop", "loop");
     document.body.appendChild(audioElement);
 
     var me = this;
