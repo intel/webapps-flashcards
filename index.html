@@ -13,8 +13,9 @@
     <meta id="viewport_meta" name="viewport" content="" />
     <script type="text/javascript">
         var viewport_meta = document.getElementById('viewport_meta');
-        var w = (screen.orientation.indexOf("portrait") == 0)?screen.availWidth:screen.availHeight;
-        viewport_meta.setAttribute('content','width='+w+', user-scalable=no');
+        var w = screen.availWidth;
+        var h = screen.availHeight;
+        viewport_meta.setAttribute('content','width='+w+', height='+h+',user-scalable=no');
     </script>
     <title id="app-name"></title>
     <link rel="stylesheet" href="css/flashcards.css"/>
