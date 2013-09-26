@@ -1,0 +1,12 @@
+{
+  "name": "webapps-flashcards",
+  "version": "1.1.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "CarterOne-font": "http://www.google.com/fonts/download?kit=CGNJyPUoG8QgiQeAv4fmnoYMAplal9iyphM6wxGuzoM"
+  }
+}

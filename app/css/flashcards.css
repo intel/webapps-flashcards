@@ -9,14 +9,7 @@
 
 @font-face {
     font-family: 'Carter One';
-    src: url('../fonts/CarterOne.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gill Sans';
-    src: url('fonts/GillSansUltraBold') format('truetype');
+    src: url(../lib/CarterOne-font/CarterOne.ttf);
     font-weight: normal;
     font-style: normal;
 }
