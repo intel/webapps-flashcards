@@ -33,6 +33,9 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'build/app/js/flashcards.js': ['app/js/flashcards.js'],
+          'build/app/js/getMessage.js': ['app/js/getMessage.js'],
+          'build/app/js/license.js': ['app/js/license.js'],
+          'build/app/js/sound.js': ['app/js/sound.js'],
           'build/app/js/scaleBody.js': ['app/js/scaleBody.js']
         }
       }
@@ -43,7 +46,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'build/app/css/flashcards.css': ['app/css/flashcards.css'],
-          'build/app/css/i18n.css': ['app/css/i18n.css']
+          'build/app/css/license.css': ['app/css/license.css']
         }
       }
     },
@@ -52,7 +55,6 @@ module.exports = function (grunt) {
       common: {
         files: [
           { expand: true, cwd: '.', src: ['app/lib/**'], dest: 'build/' },
-          { expand: true, cwd: '.', src: ['app/fonts/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/audio/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['LICENSE'], dest: 'build/app/' },
           { expand: true, cwd: '.', src: ['README.txt'], dest: 'build/app/' },
@@ -152,7 +154,7 @@ module.exports = function (grunt) {
       install: {
         action: 'install',
         remoteFiles: {
-          pattern: '/home/developer/flashcards*.wgt',
+          pattern: '/home/developer/Flashcards*.wgt',
           filter: 'latest'
         }
       },
