@@ -25,6 +25,7 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
         this.cardSet = this.cardDecks.SHAPEDECK; //name of card set and file prefix
         this.endGameFlag = false; //endGame flag
         this.deckAnswer = []; //the array of answers for this deck
+        this.eventHandlersSetup = false; // set to true after event handlers have been added
     };
 
     /**
@@ -515,6 +516,10 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
      * @private
      */
     FlashCards.prototype.setGameEventListeners = function () {
+        if (this.eventHandlersSetup) {
+          return;
+        }
+
         var self = this,
         starty = 0, //starting y coordinate of drag
         isDrag = -1; //flag for qualifying drag event
@@ -535,16 +540,20 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
             }
             isDrag = -1; //regardless reset endy
         }, false);
-        document.getElementById("shape-deck").addEventListener('click', function () {
+        document.getElementById("shape-deck").addEventListener('click', function (e) {
+            e.stopPropagation();
             self.shapeDeckClicked();
         }, false);
-        document.getElementById("color-deck").addEventListener('click', function () {
+        document.getElementById("color-deck").addEventListener('click', function (e) {
+            e.stopPropagation();
             self.colorDeckClicked();
         }, false);
-        document.getElementById("counting-deck").addEventListener('click', function () {
+        document.getElementById("counting-deck").addEventListener('click', function (e) {
+            e.stopPropagation();
             self.countingDeckClicked();
         }, false);
-        document.getElementById("spanish-deck").addEventListener('click', function () {
+        document.getElementById("spanish-deck").addEventListener('click', function (e) {
+            e.stopPropagation();
             self.spanishDeckClicked();
         }, false);
         document.getElementById("card").addEventListener('click', function () {
@@ -568,6 +577,8 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
         document.getElementById("help-close").addEventListener('click', function () {
             self.helpCloseClicked();
         }, false);
+
+        this.eventHandlersSetup = true;
     };
 
     /**
