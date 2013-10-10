@@ -6,17 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  */
-
-/**
- * globals
- */
-var getMessage,
-    license_init,
-    GameSound,
-    window,
-    document;
-
-(function () {
+define(['getMessage', 'license', 'sound'], function (getMessage, license_init, GameSound) {
     "use strict";
 
     /**
@@ -622,13 +612,5 @@ var getMessage,
         license_init("license", "splash-screen");
     };
 
-    window.addEventListener('load', function () {
-        var App = new FlashCards();
-        App.init();
-        //hack to get active state to work on webkit
-        this.touchstart = function (e) {};
-
-        scaleBody(document.getElementsByTagName("body")[0], 720);
-    }, false);
-
-}());
+    return FlashCards;
+});
