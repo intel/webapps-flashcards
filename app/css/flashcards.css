@@ -132,7 +132,7 @@ body {
     width: 205px;
     cursor: pointer;
     background-image: url("../images/NavPane.png");
-    -webkit-transition: all 1s ease-in;
+    -webkit-transition: all 0.5s ease-out;
 }
 
 #nav-pane.animation-close {
@@ -142,7 +142,7 @@ body {
     width: 205px;
     cursor: pointer;
     background-image: url("../images/NavPane.png");
-    -webkit-transition: all 1s ease-in;
+    -webkit-transition: all 0.5s ease-out;
 }
 
 #nav-pane-tent {
