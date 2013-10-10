@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2012, Intel Corporation.
  *
- * This program is licensed under the terms and conditions of the 
+ * This program is licensed under the terms and conditions of the
  * Apache License, version 2.0.  The full text of the Apache License is at
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -83,7 +83,7 @@ body {
 #cards-ribbon {
     position: absolute;
     left: 319px;
-    top: 380px; 
+    top: 380px;
     width: 354px;
     height: 82px;
     background-image: url("../images/CardRibbon.png");
@@ -237,7 +237,7 @@ body {
 
 #score-number {
     position: absolute;
-    left: 120px;
+    left: 130px;
     width: 70px;
 }
 
@@ -443,7 +443,7 @@ body {
     left: 580px;
 }
 
-#star10 {	
+#star10 {
     top: 220px;
     left: 700px;
 }
