@@ -46,6 +46,7 @@ body {
     height: 600px;
     display: none;
     background-image: url("../images/Background.png");
+    overflow-x: hidden;
 }
 
 #adventure-ribbon {
