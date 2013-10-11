@@ -5,5 +5,5 @@ require(['scaleBody', 'flashcards', 'domReady!'], function (scaleBody, FlashCard
     //hack to get active state to work on webkit
     this.touchstart = function (e) {};
 
-    scaleBody(document.body, 720);
+    scaleBody(document.getElementById('container'), 720);
 });
