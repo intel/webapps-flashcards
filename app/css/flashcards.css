@@ -15,35 +15,42 @@
 }
 
 html {
-    width: 0px;
-    height: 0px;
+    width: 100%;
+    height: 100%;
 }
 
 body {
     -webkit-user-select: none;
     box-shadow: 5px 5px 20px black;
     position: absolute;
-    width: 1024px;
-    height: 600px;
+    height: 100%;
+    width: 100%;
     -webkit-box-align: center;
     -webkit-box-pack: center;
     display: -webkit-box;
     background: #000000;
     overflow: hidden;
     cursor: default;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 1024px;
+    height: 600px;
 }
 
 #splash-screen {
     position: absolute;
-    width: 1024px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     background-image: url('../images/Background.png');
 }
 
 #game-screen {
     position: absolute;
-    width: 1024px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     display: none;
     background-image: url("../images/Background.png");
     overflow-x: hidden;
@@ -128,7 +135,7 @@ body {
     -webkit-transform: translate(172px,0);
     position: absolute;
     left: -180px;
-    height: 600px;
+    height: 100%;
     width: 205px;
     cursor: pointer;
     background-image: url("../images/NavPane.png");
@@ -138,7 +145,7 @@ body {
 #nav-pane.animation-close {
     -webkit-transform: translate(-180px,0);
     position: absolute;
-    height: 600px;
+    height: 100%;
     width: 205px;
     cursor: pointer;
     background-image: url("../images/NavPane.png");
@@ -524,8 +531,8 @@ body {
 
 #smoke-screen {
     position: absolute;
-    width: 1024px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     left: -195px;
     top: -90px;
     background-color: #000000;

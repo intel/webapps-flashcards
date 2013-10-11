@@ -1,7 +1,9 @@
 define(function () {
     return function (container, mobileWidth) {
         // height and width of the page-container element; note that these
-        // should be set in CSS so we can do measure once here
+        // should be set in CSS so we can do measure once here;
+        // also note that the container should ideally be the same size as
+        // the body, and the body should have no padding or margin
         var computedStyles = window.getComputedStyle(container);
         var containerWidth = parseInt(computedStyles.width.replace('px', ''), 10);
         var containerHeight = parseInt(computedStyles.height.replace('px', ''), 10);
