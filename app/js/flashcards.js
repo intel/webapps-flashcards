@@ -504,14 +504,6 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
     };
 
     /**
-     * FlashCards.scrollNavPane will scroll the navigation Pane the direction the user moves the mouse
-     * @private
-     */
-    FlashCards.prototype.scrollNavPane = function (delta) {
-        document.getElementById("scroll-items").style.webkitTransform = "translateY("+delta+"px)";
-    };
-
-    /**
      * FlashCards.setGameEventListeners sets event handlers for the game
      * @private
      */
@@ -526,19 +518,6 @@ define(['getMessage', 'license', 'sound'], function (getMessage, license_init, G
 
         document.getElementById("nav-pane").addEventListener('click', function () {
             self.navPaneClicked();
-        }, false);
-        document.getElementById("scroll-overlay").addEventListener('mousedown', function (e) {
-            starty = e.clientY;
-            isDrag = 0; //mouse down
-        }, false);
-        document.getElementById("scroll-overlay").addEventListener('mousemove', function (e) {
-            isDrag = 1; //mouse move
-        }, false);
-        document.getElementById("scroll-overlay").addEventListener('mouseup', function (e) {
-            if(isDrag === 1) { //if equals 1 is drag event
-                self.scrollNavPane((-1)*(starty-e.clientY));
-            }
-            isDrag = -1; //regardless reset endy
         }, false);
         document.getElementById("shape-deck").addEventListener('click', function (e) {
             e.stopPropagation();
