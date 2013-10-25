@@ -7,7 +7,7 @@
  *
  */
 
-define(['text!../locales/en/messages.json'], function (messageJson) {
+define(['text!../_locales/en/messages.json'], function (messageJson) {
   var messages = JSON.parse(messageJson);
 
   // this is the getMessage() function
