@@ -7,7 +7,7 @@
     "components"
   ],
   "dependencies": {
-    "CarterOne-font": "http://www.google.com/fonts/download?kit=CGNJyPUoG8QgiQeAv4fmnoYMAplal9iyphM6wxGuzoM",
+    "CarterOne-font": "http://themes.googleusercontent.com/static/fonts/carterone/v5/VjW2qt1pkqVtO22ObxgEBRsxEYwM7FgeyaSgU71cLG0.woff",
     "requirejs": "~2.1.8",
     "requirejs-domready": "~2.0.1",
     "requirejs-text": "~2.0.10"
