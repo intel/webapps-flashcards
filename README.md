@@ -63,7 +63,7 @@ Original Name: sliding paper on table.wav<br/>
 Source: http://www.freesound.org/people/123jorre456/sounds/46631/<br/>
 License: http://creativecommons.org/publicdomain/zero/1.0/
 
-WhipCrackBegin.ogg<br/>
+* WhipCrackBegin.ogg<br/>
 Original Name: swosh-08.flac -"stick cutting air"<br/>
 Source: http://www.freesound.org/people/qubodup/sounds/59995/<br/>
 License: License: http://creativecommons.org/licenses/by/3.0/<br/>
