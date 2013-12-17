@@ -1,5 +1,5 @@
 # INTRODUCTION
-Kid's Adventure Flash Card's is a study card app implemeneted in HTML5/JavaScript.
+Kid's Adventure Flash Card's is a study card app implemented in HTML5/JavaScript.
 
 It has been tested on the following browsers/platforms:
 * Tizen/WRT
