@@ -1,6 +1,6 @@
 {
   "name": "Flashcards",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Study card app for kids.",
   "main": "app/index.html",
   "scripts": {
